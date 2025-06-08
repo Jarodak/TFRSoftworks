@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./Footer";
@@ -25,15 +26,44 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+  <head>
+    {/* Google Tag Manager */}
+    <Script
+      id="gtm-init"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KWB4VHDR');`
+      }}
+    />
+    {/* End Google Tag Manager */}
+  </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin:0, minHeight:'100vh', display:'flex', flexDirection:'column'}}>
-        <nav style={{display:'flex',gap:'2rem',padding:'1.5rem 2rem',background:'#f4f8fb',borderBottom:'1px solid #e3e3e3',fontWeight:600,fontSize:'1.1rem'}}>
-          <a href="#home" style={{color:'#1a3a5c',textDecoration:'none'}}>Home</a>
-          <a href="#about" style={{color:'#1a3a5c',textDecoration:'none'}}>About</a>
-          <a href="#services" style={{color:'#1a3a5c',textDecoration:'none'}}>Services</a>
-          <a href="#projects" style={{color:'#1a3a5c',textDecoration:'none'}}>Projects</a>
-          <a href="#contact" style={{color:'#1a3a5c',textDecoration:'none'}}>Contact</a>
-          <a href="#blog" style={{color:'#1a3a5c',textDecoration:'none'}}>Blog</a>
-        </nav>
+          {/* Google Tag Manager (noscript) */}
+          <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWB4VHDR"
+              height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe>
+          </noscript>
+          {/* End Google Tag Manager (noscript) */}
+        <nav className="main-nav">
+  <input type="checkbox" id="nav-toggle" className="nav-toggle" aria-label="Toggle navigation" />
+  <label htmlFor="nav-toggle" className="nav-hamburger" aria-label="Open navigation menu">
+    <span />
+    <span />
+    <span />
+  </label>
+  <div className="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#blog">Blog</a>
+  </div>
+</nav>
         <div style={{flex:1}}>
           {children}
         </div>

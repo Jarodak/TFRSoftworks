@@ -48,7 +48,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" style={{ width: '100%', background: 'var(--section-bg, var(--background))', padding: '6rem 0 5rem', margin: 0, position: 'relative', overflow: 'hidden' }}>
+      <section id="about" style={{ width: '100%', background: 'var(--section-bg-1)', padding: '6rem 0 5rem', margin: 0, position: 'relative', overflow: 'hidden' }}>
         {/* Geometric SVG background */}
         <svg width="400" height="400" viewBox="0 0 400 400" fill="none" style={{ position: 'absolute', top: '-60px', left: '-80px', opacity: 0.14, zIndex: 0 }} aria-hidden="true">
           <circle cx="200" cy="200" r="180" stroke="#2563eb" strokeWidth="18" fill="none" />
@@ -72,7 +72,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" style={{ width: '100%', background: 'var(--section-bg, var(--background))', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="services" style={{ width: '100%', background: 'var(--section-bg-2)', padding: '6rem 0 5rem', margin: 0 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem' }}>
           <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center', width: '100%', fontFamily: 'inherit', textTransform: 'none' }}>What We Do</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" style={{ width: '100%', background: 'var(--section-bg, var(--background))', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="projects" style={{ width: '100%', background: 'var(--section-bg-3)', padding: '6rem 0 5rem', margin: 0 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
             src="https://unsplash.it/420/260?image=1005"
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" style={{ width: '100%', background: 'var(--section-bg, var(--background))', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="contact" style={{ width: '100%', background: 'var(--section-bg-1)', padding: '6rem 0 5rem', margin: 0 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row-reverse' }}>
           <Image
             src="https://unsplash.it/420/260?image=883"
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" style={{ width: '100%', background: 'var(--section-bg, var(--background))', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="blog" style={{ width: '100%', background: 'var(--section-bg-2)', padding: '6rem 0 5rem', margin: 0 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem' }}>
           <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center' }}>Latest Updates</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
             {/* Update 2 */}
             <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <span style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>📝</span>
+             <span style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>📝</span>
               <h4 style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', textAlign: 'center' }}>Launching Our Blog</h4>
               <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>Follow us for technical insights, company news, and tips for digital transformation.</p>
             </div>

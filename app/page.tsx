@@ -72,29 +72,9 @@ export default function Home() {
       .about-row p, .why-row p, .contact-row p {
         text-align: center !important;
         font-size: 1.09rem !important;
-      }
-    }
-  `}</style>
-  <style>{`
-    @media (max-width: 800px) {
-      .about-row, .why-row, .contact-row {
-        flex-direction: column !important;
-        gap: 2rem !important;
-        padding: 0 1rem !important;
-      }
-      .about-row img, .why-row img, .contact-row img {
-        width: 100% !important;
-        height: auto !important;
-        max-width: 100% !important;
-        margin-bottom: 1.2rem !important;
-      }
-      .about-row h2, .why-row h2, .contact-row h2 {
-        font-size: 2rem !important;
-        text-align: center !important;
-      }
-      .about-row p, .why-row p, .contact-row p {
-        text-align: center !important;
-        font-size: 1.09rem !important;
+        margin-bottom: 1.1rem !important;
+        display: block !important;
+        color: var(--foreground) !important;
       }
     }
   `}</style>
@@ -163,7 +143,7 @@ export default function Home() {
           />
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>Why Choose Us</h2>
-            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'left', marginBottom: '1.7rem' }}>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'left', marginBottom: '1.1rem' }}>
               As a new and agile company, we are passionate about building strong partnerships and delivering real value. Here’s what sets us apart:
             </p>
             <ul style={{ color: 'var(--primary)', fontSize: '1.08rem', lineHeight: 1.7, paddingLeft: 20, margin: 0 }}>

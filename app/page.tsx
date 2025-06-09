@@ -7,6 +7,25 @@ export default function Home() {
     <div style={{ background: 'var(--section-bg, var(--background))', minHeight: '100vh', width: '100%' }}>
       {/* Hero Section */}
       <section id="home" style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'hidden', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', minHeight: '32vh', padding: 0 }}>
+  <style>{`
+    @media (max-width: 800px) {
+      #home {
+        flex-direction: column !important;
+        padding: 0 !important;
+        min-height: unset !important;
+      }
+      #home h1 {
+        font-size: 2.1rem !important;
+        line-height: 1.18 !important;
+        margin-bottom: 0.9rem !important;
+      }
+      #home .hero-tags {
+        font-size: 0.98rem !important;
+        gap: 0.7rem !important;
+        margin-bottom: 1.3rem !important;
+      }
+    }
+  `}</style>
         {/* Cityscape background image */}
         <Image
           src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
@@ -16,8 +35,8 @@ export default function Home() {
           style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.23, filter: 'blur(1px)', zIndex: 0 }}
         />
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'visible' }}>
-          <h1 style={{ fontSize: 'clamp(1rem, 4vw, 4rem)', fontWeight: 300, letterSpacing: '-0.03em', marginBottom: '1.1rem', color: 'var(--primary)', textShadow: 'none', lineHeight: 1.07, textAlign: 'center', wordBreak: 'break-word', overflow: 'visible' }}>Welcome to TFR Softworks</h1>
-          <div style={{ display: 'flex', gap: '1.1rem', color: 'var(--primary)', fontWeight: 500, fontSize: '1.1rem', marginBottom: '2.1rem', letterSpacing: '0.01em', width: '100%', justifyContent: 'center' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 300, letterSpacing: '-0.03em', marginBottom: '1.1rem', color: 'var(--primary)', textShadow: 'none', lineHeight: 1.07, textAlign: 'center', wordBreak: 'break-word', overflow: 'visible' }}>Welcome to TFR Softworks</h1>
+          <div className="hero-tags" style={{ display: 'flex', gap: '1.1rem', color: 'var(--primary)', fontWeight: 500, fontSize: '1.1rem', marginBottom: '2.1rem', letterSpacing: '0.01em', width: '100%', justifyContent: 'center' }}>
             <span>Custom Software</span>
             <span>&#8226;</span>
             <span>Modern Web Apps</span>
@@ -78,7 +97,7 @@ export default function Home() {
       }
     }
   `}</style>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
+        <div className="about-row" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
             src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
             alt="Code on a computer screen - tech workspace"
@@ -133,7 +152,7 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section id="why-us" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
+      <div className="why-row" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
             src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
             alt="Teamwork and innovation at a modern tech company"

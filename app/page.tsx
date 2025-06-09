@@ -137,7 +137,7 @@ export default function Home() {
           {/* Left: Heading, Text, Image */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>Contact Information</h2>
-            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: '' }}>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'left' }}>
               Please fill out our contact form to get in touch. We’d love to discuss how we can help with your next project.
             </p>
             <Image

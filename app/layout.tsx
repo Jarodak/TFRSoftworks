@@ -60,44 +60,20 @@ export default function RootLayout({
     height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe>
 </noscript>
 
-        <nav className="main-nav" style={{
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  height: '3.5rem',
-  padding: '0 2vw',
-  background: 'var(--nav-bg)',
-  borderBottom: '1.5px solid var(--card-border)',
-  zIndex: 10,
-  backdropFilter: 'blur(8px)',
-  WebkitBackdropFilter: 'blur(8px)',
-  boxShadow: '0 2px 24px 0 var(--primary)11',
-  position: 'sticky',
-  top: 0
-}}>
+        <nav className="main-nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '3.5rem', padding: '0 2vw', background: 'var(--nav-bg)', borderBottom: '2px solid #222', zIndex: 2 }}>
           <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <span style={{ fontWeight: 700, fontSize: '1.25rem', color: 'var(--primary)', letterSpacing: '-0.5px', fontFamily: 'inherit' }}>TFR Softworks</span>
+            <span style={{ fontWeight: 700, fontSize: '1.25rem', color: '#fff', letterSpacing: '-0.5px', fontFamily: 'inherit' }}>TFR Softworks</span>
           </div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2.2rem', fontWeight: 500 }}>
-            <a href="#home" className="nav-link nav-link-active" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>
+            <a href="#home" className="nav-link nav-link-active" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>
               Home
-              <span style={{
-  display: 'block',
-  height: 3,
-  background: 'var(--primary)',
-  borderRadius: 2,
-  width: '100%',
-  position: 'absolute',
-  left: 0,
-  bottom: -6,
-  transition: 'background 0.22s, width 0.22s',
-}} />
+              <span style={{ display: 'block', height: 3, background: 'var(--primary)', borderRadius: 2, width: '100%', position: 'absolute', left: 0, bottom: -6 }} />
             </a>
-            <a href="#about" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>About Us</a>
-            <a href="#services" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>What We Do</a>
-            <a href="#why-us" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Why Choose Us</a>
-            <a href="#contact" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Contact Information</a>
-            <a href="#blog" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Latest Updates</a>
+            <a href="#about" className="nav-link" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>About Us</a>
+            <a href="#services" className="nav-link" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>What We Do</a>
+            <a href="#why-us" className="nav-link" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>Why Choose Us</a>
+            <a href="#contact" className="nav-link" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>Contact Information</a>
+            <a href="#blog" className="nav-link" style={{ color: '#fff', position: 'relative', padding: '0.2rem 0' }}>Latest Updates</a>
 </div>
         </nav>
         <div style={{ position: 'relative', zIndex: 2, flex: 1 }}>

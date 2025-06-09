@@ -52,6 +52,52 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, position: 'relative', overflow: 'hidden', background: 'transparent' }}>
+  <style>{`
+    @media (max-width: 800px) {
+      .about-row, .why-row, .contact-row {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        padding: 0 1rem !important;
+      }
+      .about-row img, .why-row img, .contact-row img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        margin-bottom: 1.2rem !important;
+      }
+      .about-row h2, .why-row h2, .contact-row h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+      }
+      .about-row p, .why-row p, .contact-row p {
+        text-align: center !important;
+        font-size: 1.09rem !important;
+      }
+    }
+  `}</style>
+  <style>{`
+    @media (max-width: 800px) {
+      .about-row, .why-row, .contact-row {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        padding: 0 1rem !important;
+      }
+      .about-row img, .why-row img, .contact-row img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        margin-bottom: 1.2rem !important;
+      }
+      .about-row h2, .why-row h2, .contact-row h2 {
+        font-size: 2rem !important;
+        text-align: center !important;
+      }
+      .about-row p, .why-row p, .contact-row p {
+        text-align: center !important;
+        font-size: 1.09rem !important;
+      }
+    }
+  `}</style>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
             src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
@@ -133,7 +179,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem' }}>
+        <div className="contact-row" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem' }}>
           {/* Left: Heading, Text, Image */}
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>Contact Information</h2>

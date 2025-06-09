@@ -143,8 +143,10 @@ h3 { font-size: 1.7rem; }
 
 .work-with-us-btn:hover, .work-with-us-btn:focus-visible, .work-with-us-btn:active {
   transform: none !important;
-  box-shadow: 0 2px 12px var(--primary)18 !important;
-  filter: none !important;
+  box-shadow: 0 0 0 4px #2563eb55, 0 0 18px 6px #2563eb99, 0 2px 18px 0 #2563eb44 !important;
+  filter: brightness(1.13) saturate(1.13);
+  outline: none;
+  z-index: 2;
 }
 
 p, li, span, label {

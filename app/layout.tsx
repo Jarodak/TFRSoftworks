@@ -42,32 +42,68 @@ export default function RootLayout({
     {/* End Google Tag Manager */}
   </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} style={{margin:0, minHeight:'100vh', display:'flex', flexDirection:'column'}}>
-          {/* Google Tag Manager (noscript) */}
-          <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWB4VHDR"
-              height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe>
-          </noscript>
-          {/* End Google Tag Manager (noscript) */}
-        <nav className="main-nav">
-  <input type="checkbox" id="nav-toggle" className="nav-toggle" aria-label="Toggle navigation" />
-  <label htmlFor="nav-toggle" className="nav-hamburger" aria-label="Open navigation menu">
-    <span />
-    <span />
-    <span />
-  </label>
-  <div className="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="#blog">Blog</a>
-  </div>
-</nav>
-        <div style={{flex:1}}>
+        {/* Animated Gradient Background */}
+        <div id="site-bg-gradient" style={{
+          position: 'fixed',
+          zIndex: 0,
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          pointerEvents: 'none',
+          background: '#181e34',
+          opacity: 1
+        }} />
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWB4VHDR"
+    height="0" width="0" style={{display:"none",visibility:"hidden"}}></iframe>
+</noscript>
+
+        <nav className="main-nav" style={{
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  height: '3.5rem',
+  padding: '0 2vw',
+  background: 'var(--nav-bg)',
+  borderBottom: '1.5px solid var(--card-border)',
+  zIndex: 10,
+  backdropFilter: 'blur(8px)',
+  WebkitBackdropFilter: 'blur(8px)',
+  boxShadow: '0 2px 24px 0 var(--primary)11',
+  position: 'sticky',
+  top: 0
+}}>
+          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <span style={{ fontWeight: 700, fontSize: '1.25rem', color: 'var(--primary)', letterSpacing: '-0.5px', fontFamily: 'inherit' }}>TFR Softworks</span>
+          </div>
+          <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2.2rem', fontWeight: 500 }}>
+            <a href="#home" className="nav-link nav-link-active" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>
+              Home
+              <span style={{
+  display: 'block',
+  height: 3,
+  background: 'var(--primary)',
+  borderRadius: 2,
+  width: '100%',
+  position: 'absolute',
+  left: 0,
+  bottom: -6,
+  transition: 'background 0.22s, width 0.22s',
+}} />
+            </a>
+            <a href="#about" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>About Us</a>
+            <a href="#services" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>What We Do</a>
+            <a href="#why-us" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Why Choose Us</a>
+            <a href="#contact" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Contact Information</a>
+            <a href="#blog" className="nav-link" style={{ color: 'var(--nav-link)', fontFamily: 'inherit', position: 'relative', padding: '0.2rem 0', fontWeight: 500, fontSize: '1.08rem', letterSpacing: '-0.5px', background: 'none', transition: 'color 0.18s' }}>Latest Updates</a>
+</div>
+        </nav>
+        <div style={{ position: 'relative', zIndex: 2, flex: 1 }}>
           {children}
+          <Footer />
         </div>
-        <Footer />
       </body>
     </html>
   );

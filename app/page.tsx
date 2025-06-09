@@ -1,169 +1,184 @@
+"use client";
 import Image from "next/image";
+import SleepContactForm from "./SleepContactForm";
 
 export default function Home() {
   return (
     <div style={{ background: 'var(--section-bg, var(--background))', minHeight: '100vh', width: '100%' }}>
       {/* Hero Section */}
-      {/* Hero Section */}
-      <section id="home" style={{ width: '100%', position: 'relative', padding: '4rem 0 3rem', background: 'linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%)', textAlign: 'center', overflow: 'hidden' }}>
+      <section id="home" style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'hidden', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', minHeight: '32vh', padding: 0 }}>
         {/* Cityscape background image */}
         <Image
-          src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1600&q=80"
-          alt="Cityscape background"
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80"
+          alt="Abstract digital tech background"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'bottom', opacity: 0.23, filter: 'blur(1px)', zIndex: 0 }}
+          style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.23, filter: 'blur(1px)', zIndex: 0 }}
         />
-        {/* Overlay for contrast */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,32,56,0.70)', zIndex: 1 }} />
-        <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <h1 style={{ fontSize: '3rem', fontWeight: 800, letterSpacing: '-1px', marginBottom: '1rem', color: '#fff', textShadow: '0 2px 12px #0008', background: 'linear-gradient(90deg, #fff 20%, #b8d0f9 80%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Welcome to TFR Softworks</h1>
-          <h2 style={{ fontWeight: 400, fontSize: '1.5rem', marginBottom: '2rem', color: '#e0eaff', textShadow: '0 2px 8px #0005' }}>
-            Custom Applications. Modern Solutions. Exceptional Results.
-          </h2>
-          <a
-            href="mailto:info@tfrsoftworks.com"
-            style={{
-              display: 'inline-block',
-              background: 'linear-gradient(90deg, #fff9, #eaf6ff 70%, #b8d0f9 100%)',
-              backdropFilter: 'blur(7px)',
-              color: 'var(--primary)',
-              fontWeight: 700,
-              padding: '1rem 2.5rem',
-              borderRadius: '2rem',
-              fontSize: '1.2rem',
-              letterSpacing: '0.03em',
-              boxShadow: '0 4px 20px #2563eb22',
-              border: '1px solid #fff6',
-              transition: 'background 0.22s, box-shadow 0.22s, transform 0.18s',
-              marginTop: '1rem',
-              textDecoration: 'none',
-              cursor: 'pointer',
-            }}
-          >
-            Work With Us
-          </a>
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'visible' }}>
+          <h1 style={{ fontSize: 'clamp(1rem, 4vw, 4rem)', fontWeight: 300, letterSpacing: '-0.03em', marginBottom: '1.1rem', color: 'var(--primary)', textShadow: 'none', lineHeight: 1.07, textAlign: 'center', wordBreak: 'break-word', overflow: 'visible' }}>Welcome to TFR Softworks</h1>
+          <div style={{ display: 'flex', gap: '1.1rem', color: 'var(--primary)', fontWeight: 500, fontSize: '1.1rem', marginBottom: '2.1rem', letterSpacing: '0.01em', width: '100%', justifyContent: 'center' }}>
+            <span>Custom Software</span>
+            <span>&#8226;</span>
+            <span>Modern Web Apps</span>
+            <span>&#8226;</span>
+            <span>Expert Consulting</span>
+          </div>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <a
+              href="mailto:info@tfrsoftworks.com"
+              style={{
+                display: 'inline-block',
+                background: 'var(--card-bg)',
+                color: 'var(--primary)',
+                fontWeight: 600,
+                padding: '0.7rem 1.8rem',
+                borderRadius: '2rem',
+                fontSize: '1rem',
+                letterSpacing: '0.03em',
+                boxShadow: '0 2px 12px var(--primary)18',
+                border: '1px solid var(--primary)',
+                marginTop: '0.2rem',
+                textDecoration: 'none',
+                cursor: 'pointer',
+              }}
+              className="work-with-us-btn"
+            >
+              Work With Us
+            </a>
+          </div>
         </div>
-
       </section>
 
       {/* About Section */}
-      <section id="about" style={{ width: '100%', background: 'var(--section-bg-1)', padding: '6rem 0 5rem', margin: 0, position: 'relative', overflow: 'hidden' }}>
-        {/* Geometric SVG background */}
-        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" style={{ position: 'absolute', top: '-60px', left: '-80px', opacity: 0.14, zIndex: 0 }} aria-hidden="true">
-          <circle cx="200" cy="200" r="180" stroke="#2563eb" strokeWidth="18" fill="none" />
-          <rect x="60" y="60" width="120" height="120" rx="30" fill="#2563eb" opacity="0.18" />
-        </svg>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row', position: 'relative', zIndex: 1 }}>
+      <section id="about" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, position: 'relative', overflow: 'hidden', background: 'transparent' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
-            src="https://unsplash.it/420/260?image=1062"
-            alt="About us illustration"
+            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80"
+            alt="Code on a computer screen - tech workspace"
             width={420}
             height={260}
-            style={{ borderRadius: '1rem', boxShadow: '0 2px 12px #2563eb18', objectFit: 'cover', flexShrink: 0 }}
+            style={{ borderRadius: '1rem', boxShadow: '0 2px 12px var(--primary)18', objectFit: 'cover', flexShrink: 0 }}
           />
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '1.5rem', letterSpacing: '-1px', textAlign: 'center', width: '100%' }}>About Us</h2>
-            <p style={{ color: 'var(--foreground)', fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'center' }}>
-              TFR Softworks is a boutique software company specializing in custom applications, tools, and solutions. We blend technical excellence with creative problem-solving to help our clients succeed in a digital world.
+            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '1.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>About Us</h2>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'left' }}>
+              TFR Softworks is a boutique software company specializing in custom applications, tools, and solutions. We combine technical expertise with creative problem-solving to help our clients thrive in today’s digital world.
             </p>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" style={{ width: '100%', background: 'var(--section-bg-2)', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="services" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem' }}>
-          <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center', width: '100%', fontFamily: 'inherit', textTransform: 'none' }}>What We Do</h2>
+          <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%', fontFamily: 'inherit', textTransform: 'none' }}>What We Do</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
             {/* Card 1 */}
-            <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'row', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
-              {/* Accent bar */}
-              <div style={{ width: 6, height: 60, background: 'linear-gradient(180deg, #2563eb 60%, #b8d0f9 100%)', borderRadius: 8, marginRight: 18, alignSelf: 'flex-start' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <span style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💻</span>
-                <h3 style={{ color: 'var(--secondary)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.8rem', textAlign: 'center' }}>Custom Software</h3>
-                <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>End-to-end development of web, mobile, and desktop apps tailored to your business goals.</p>
+            <div className="card" style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '1.3rem', boxShadow: '0 4px 24px var(--primary)33', padding: '2.2rem 1.6rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
+                <span className="card-icon" style={{ marginBottom: '1.1rem' }}>
+                  {/* Laptop SVG */}
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M2 17h20"/></svg>
+                </span>
+                <h3 style={{ color: 'var(--foreground)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.7rem', textAlign: 'center' }}>Custom Software</h3>
+                <p style={{ fontSize: '1.07rem', textAlign: 'center' }}>End-to-end development of web, mobile, and desktop apps tailored to your business goals.</p>
               </div>
-            </div>
             {/* Card 2 */}
-            <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'row', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
-              {/* Accent bar */}
-              <div style={{ width: 6, height: 60, background: 'linear-gradient(180deg, #2563eb 60%, #b8d0f9 100%)', borderRadius: 8, marginRight: 18, alignSelf: 'flex-start' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <span style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📱</span>
-                <h3 style={{ color: 'var(--secondary)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.8rem', textAlign: 'center' }}>Web & Mobile Solutions</h3>
-                <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>Responsive websites, cross-platform mobile apps, and cloud integrations using modern stacks.</p>
+            <div className="card" style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '1.3rem', boxShadow: '0 4px 24px var(--primary)33', padding: '2.2rem 1.6rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
+                <span className="card-icon" style={{ marginBottom: '1.1rem' }}>
+                  {/* Mobile SVG */}
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                </span>
+                <h3 style={{ color: 'var(--foreground)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.7rem', textAlign: 'center' }}>Web & Mobile Solutions</h3>
+                <p style={{ fontSize: '1.07rem', textAlign: 'center' }}>Responsive websites, cross-platform mobile apps, and cloud integrations using modern stacks.</p>
               </div>
-            </div>
             {/* Card 3 */}
-            <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'row', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
-              {/* Accent bar */}
-              <div style={{ width: 6, height: 60, background: 'linear-gradient(180deg, #2563eb 60%, #b8d0f9 100%)', borderRadius: 8, marginRight: 18, alignSelf: 'flex-start' }} />
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <span style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🧠</span>
-                <h3 style={{ color: 'var(--secondary)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.8rem', textAlign: 'center' }}>Project Consulting</h3>
-                <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>Technical strategy, architecture, and project management to turn your ideas into reality.</p>
+            <div className="card" style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '1.3rem', boxShadow: '0 4px 24px var(--primary)33', padding: '2.2rem 1.6rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'pointer', transition: 'box-shadow 0.22s, transform 0.18s' }}>
+                <span className="card-icon" style={{ marginBottom: '1.1rem' }}>
+                  {/* Brain SVG */}
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15.5 6.5a3.5 3.5 0 0 1 3.5 3.5v4a3.5 3.5 0 0 1-3.5 3.5"/><path d="M8.5 6.5A3.5 3.5 0 0 0 5 10v4a3.5 3.5 0 0 0 3.5 3.5"/><path d="M9 9h6"/><path d="M9 12h6"/><path d="M9 15h6"/></svg>
+                </span>
+                <h3 style={{ color: 'var(--foreground)', fontWeight: 700, fontSize: '1.18rem', marginBottom: '0.7rem', textAlign: 'center' }}>Project Consulting</h3>
+                <p style={{ fontSize: '1.07rem', textAlign: 'center' }}>Technical strategy, architecture, and project management to turn your ideas into reality.</p>
               </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" style={{ width: '100%', background: 'var(--section-bg-3)', padding: '6rem 0 5rem', margin: 0 }}>
+      {/* Why Choose Us Section */}
+      <section id="why-us" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row' }}>
           <Image
-            src="https://unsplash.it/420/260?image=1005"
-            alt="Projects collage"
+            src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=800&q=80"
+            alt="Teamwork and innovation at a modern tech company"
             width={420}
             height={260}
-            style={{ borderRadius: '1rem', boxShadow: '0 2px 12px #2563eb18', objectFit: 'cover', flexShrink: 0 }}
+            style={{ borderRadius: '1rem', boxShadow: '0 2px 12px var(--primary)18', objectFit: 'cover', flexShrink: 0 }}
           />
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center', width: '100%', fontFamily: 'inherit', textTransform: 'none' }}>Featured Projects</h2>
-            <p style={{ color: 'var(--foreground)', fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'center' }}>
-              Explore some of the projects we’ve delivered for clients across a range of industries.
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>Why Choose Us</h2>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'left', marginBottom: '1.7rem' }}>
+              As a new and agile company, we are passionate about building strong partnerships and delivering real value. Here’s what sets us apart:
             </p>
+            <ul style={{ color: 'var(--primary)', fontSize: '1.08rem', lineHeight: 1.7, paddingLeft: 20, margin: 0 }}>
+              <li><b>Personal Attention:</b> You work directly with our founders and senior engineers on every project.</li>
+              <li><b>Modern Technology:</b> We use the latest tools and frameworks for efficient, scalable solutions.</li>
+              <li><b>Transparent Process:</b> You’re kept in the loop from day one, with clear communication and honest feedback.</li>
+              <li><b>Flexible Engagement:</b> We adapt to your needs, whether you’re a startup or an established business.</li>
+              <li><b>Results-Driven:</b> Our success is measured by your satisfaction and the impact of our work.</li>
+            </ul>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" style={{ width: '100%', background: 'var(--section-bg-1)', padding: '6rem 0 5rem', margin: 0 }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem', flexDirection: 'row-reverse' }}>
-          <Image
-            src="https://unsplash.it/420/260?image=883"
-            alt="Contact illustration"
-            width={420}
-            height={260}
-            style={{ borderRadius: '1rem', boxShadow: '0 2px 12px #2563eb18', objectFit: 'cover', flexShrink: 0 }}
-          />
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center', width: '100%', fontFamily: 'inherit', textTransform: 'none' }}>Contact Information</h2>
-            <p style={{ color: 'var(--foreground)', fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: 'center' }}>
-              Email us at <a href="mailto:info@tfrsoftworks.com" style={{ color: 'var(--secondary)', textDecoration: 'underline' }}>info@tfrsoftworks.com</a> to get in touch.
+      <section id="contact" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', gap: '3rem' }}>
+          {/* Left: Heading, Text, Image */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'left', width: '100%' }}>Contact Information</h2>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: 700, textAlign: '' }}>
+              Please fill out our contact form to get in touch. We’d love to discuss how we can help with your next project.
             </p>
+            <Image
+              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+              alt="Man typing on a laptop in a tech workspace"
+              width={420}
+              height={260}
+              style={{ borderRadius: '1rem', boxShadow: '0 2px 12px var(--primary)18', objectFit: 'cover', flexShrink: 0, marginTop: '2.2rem' }}
+            />
+          </div>
+          {/* Right: Contact Form, vertically centered */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 360 }}>
+            <div style={{ width: '100%', maxWidth: 420 }}>
+              <SleepContactForm />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Blog Section */}
-      <section id="blog" style={{ width: '100%', background: 'var(--section-bg-2)', padding: '6rem 0 5rem', margin: 0 }}>
+      <section id="blog" style={{ width: '100%', padding: '6rem 0 5rem', margin: 0, background: 'transparent' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem' }}>
           <h2 style={{ color: 'var(--primary)', fontWeight: 800, fontSize: '2.3rem', marginBottom: '2.5rem', letterSpacing: '-1px', textAlign: 'center' }}>Latest Updates</h2>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
             {/* Update 1 */}
-            <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <span style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>🚀</span>
-              <h4 style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', textAlign: 'center' }}>Coming Soon: Our Project Portfolio</h4>
-              <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>We’ll be sharing highlights from our favorite projects and client success stories. Stay tuned!</p>
+            <div className="card" style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '1.3rem', boxShadow: '0 4px 24px var(--primary)33', padding: '2.2rem 1.6rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span className="card-icon" style={{ marginBottom: '1.1rem' }}>
+                {/* Rocket SVG */}
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5l5-5M15 9l5-5-5 5zm-6 6l-5 5 5-5zm2.5-2.5l5-5-5 5zm6 6l5-5-5 5z"/></svg>
+              </span>
+              <h4 style={{ color: 'var(--foreground)', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', textAlign: 'center' }}>Coming Soon: Our Project Portfolio</h4>
+              <p style={{ fontSize: '1.07rem', textAlign: 'center' }}>We’ll be sharing highlights from our favorite projects and client success stories. Stay tuned!</p>
             </div>
             {/* Update 2 */}
-            <div style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', border: '1px solid var(--card-border)', borderRadius: '1.1rem', boxShadow: '0 4px 18px #2563eb14', padding: '2.2rem 1.7rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-             <span style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>📝</span>
-              <h4 style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', textAlign: 'center' }}>Launching Our Blog</h4>
-              <p style={{ color: 'var(--foreground)', fontSize: '1.07rem', textAlign: 'center' }}>Follow us for technical insights, company news, and tips for digital transformation.</p>
+            <div className="card" style={{ flex: '1 1 300px', minWidth: 260, maxWidth: 340, background: 'var(--card-bg)', color: 'var(--foreground)', border: '1px solid var(--card-border)', borderRadius: '1.3rem', boxShadow: '0 4px 24px var(--primary)33', padding: '2.2rem 1.6rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span className="card-icon" style={{ marginBottom: '1.1rem' }}>
+                {/* Pencil SVG */}
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19.5 3 21l1.5-4L16.5 3.5z"/></svg>
+              </span>
+              <h4 style={{ color: 'var(--foreground)', fontWeight: 700, fontSize: '1.13rem', marginBottom: '0.7rem', textAlign: 'center' }}>Launching Our Blog</h4>
+              <p style={{ fontSize: '1.07rem', textAlign: 'center' }}>Follow us for technical insights, company news, and tips for digital transformation.</p>
             </div>
           </div>
         </div>

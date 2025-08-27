@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   description: "We partner with exceptional founders to build durable, efficient companies through hands-on product development, smart capital, and go-to-market support.",
   keywords: ["venture capital", "startup funding", "tech investment", "founder partnership", "SaaS", "HealthTech", "LegalTech"],
   authors: [{ name: "Kernel Equity" }],
+  icons: {
+    icon: [{ url: "/favicon.ico", type: "image/x-icon", sizes: "any" }],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "Kernel Equity | Technology-Powered Investment & Partnership",
     description: "We partner with exceptional founders to build durable, efficient companies through hands-on product development, smart capital, and go-to-market support.",

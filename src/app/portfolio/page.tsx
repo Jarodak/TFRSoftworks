@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, Filter, Boxes } from "lucide-react";
 
@@ -9,6 +10,109 @@ import { ExternalLink, ArrowRight, Filter, Boxes } from "lucide-react";
 const Container = ({ children }: { children: React.ReactNode }) => (
   <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
 );
+
+// Logo component: explicit map to public assets, then attempts multiple extensions and locations, with fallback
+const logoMap: Record<string, string> = {
+  "Compass": "/Compass.png",
+  "Tempo (Formerly Kalatech)": "/Tempo.png",
+  "HopDoc": "/HopDoc.png",
+  "Time Miner": "/TimeMiner.png",
+  "Plankk": "/Plankk.png",
+  "TheraVista Health": "/Theravista.jpg",
+  "Clarity Behavioural Health": "/Clarity.png",
+  "5 Star Finds": "/5StarFinds.png",
+  "Clearly Legal": "/Clearly.png",
+  "Creative Health Care Insight": "/CreativeHealthcare.png",
+  "MaxxContent": "/Maxxcontent.png",
+  "CoreCommerce": "/CoreCommerce.png",
+  "OtherLeft": "/Otherleft.png",
+};
+const exts = ["png", "svg", "webp", "jpg", "jpeg"] as const;
+const toSlug = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/\(([^)]+)\)/g, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+
+function Logo({ name, mode = "inline", className = "" }: { name: string; mode?: "inline" | "fill"; className?: string }) {
+  const explicit = logoMap[name];
+  const slug = toSlug(name);
+  const [extI, setExtI] = useState(0);
+  const [baseI, setBaseI] = useState(0);
+  const [usedExplicit, setUsedExplicit] = useState(!!explicit);
+  const [failed, setFailed] = useState(false);
+  const bases = [`/logos/${slug}`, `/${slug}`];
+  const src = usedExplicit && explicit ? explicit : `${bases[baseI]}.${exts[extI]}`;
+
+  if (failed) {
+    const initials = name
+      .split(/\s+/)
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 3)
+      .toUpperCase();
+    return mode === "fill" ? (
+      <div className="flex h-full w-full items-center justify-center">
+        <div className="inline-flex items-center justify-center rounded-md bg-white/10 px-3 py-1 text-sm font-semibold tracking-wide text-white/80 ring-1 ring-white/15">
+          {initials}
+        </div>
+      </div>
+    ) : (
+      <div className="inline-flex h-8 items-center justify-center rounded-md bg-white/10 px-2 text-xs font-semibold tracking-wide text-white/80 ring-1 ring-white/15">
+        {initials}
+      </div>
+    );
+  }
+
+  return mode === "fill" ? (
+    <Image
+      src={src}
+      alt={`${name} logo`}
+      fill
+      sizes="(max-width: 640px) 160px, (max-width: 1024px) 192px, 208px"
+      className={`object-contain opacity-90 ${className}`}
+      onError={() => {
+        if (usedExplicit) {
+          // Switch to fallback search strategy
+          setUsedExplicit(false);
+          setExtI(0);
+          setBaseI(0);
+          return;
+        }
+        if (extI < exts.length - 1) setExtI(extI + 1);
+        else if (baseI < bases.length - 1) {
+          setExtI(0);
+          setBaseI(baseI + 1);
+        } else setFailed(true);
+      }}
+      priority={false}
+    />
+  ) : (
+    <Image
+      src={src}
+      alt={`${name} logo`}
+      width={320}
+      height={120}
+      className={`opacity-90 ${className}`}
+      onError={() => {
+        if (usedExplicit) {
+          setUsedExplicit(false);
+          setExtI(0);
+          setBaseI(0);
+          return;
+        }
+        if (extI < exts.length - 1) setExtI(extI + 1);
+        else if (baseI < bases.length - 1) {
+          setExtI(0);
+          setBaseI(baseI + 1);
+        } else setFailed(true);
+      }}
+      priority={false}
+    />
+  );
+}
 
 const partners = [
   // --- Active ---
@@ -116,8 +220,7 @@ export default function KernelPortfolioPage() {
         <Container>
           <div className="flex items-center justify-between py-4">
             <Link href="/" className="group inline-flex items-center gap-2">
-              <Boxes className="h-6 w-6 text-[color:var(--yellow-green)]" />
-              <span className="text-base font-bold tracking-wide">Kernel Equity</span>
+              <Image src="/header-logo.png" alt="Kernel Equity" width={200} height={48} priority className="h-10 w-auto md:h-12" />
             </Link>
             <div className="flex items-center gap-2">
               {filters.map((f) => (
@@ -143,9 +246,13 @@ export default function KernelPortfolioPage() {
       <section id="top" className="relative">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,var(--asparagus-25),rgba(15,23,42,0))]" />
         <Container>
-          <div className="relative py-16">
-            <h1 className="text-4xl font-extrabold">Our Portfolio</h1>
-            <p className="mt-3 max-w-2xl text-white/80">
+          <div className="relative py-14">
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+              <span className="bg-gradient-to-r from-[color:var(--yellow-green)] via-[color:var(--asparagus)] to-white bg-clip-text text-transparent">
+                Our Portfolio
+              </span>
+            </h1>
+            <p className="mt-3 max-w-2xl text-base sm:text-lg text-white/80">
               Builders, operators, and creators across healthcare, legal, enterprise software, and community ventures.
             </p>
           </div>
@@ -155,47 +262,54 @@ export default function KernelPortfolioPage() {
       {/* Grid */}
       <section className="py-6">
         <Container>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {list.map((p, idx) => (
               <motion.div
                 key={`${p.name}-${idx}`}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: idx * 0.02 }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 ring-1 ring-white/10"
+                className="h-full min-h-[220px] rounded-3xl bg-white/5 p-4 ring-1 ring-white/10 transition hover:ring-[color:var(--yellow-green-60)]"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-lg font-semibold">{p.name}</div>
-                    <div className="text-xs uppercase tracking-wide text-[color:var(--yellow-green)]">{p.sector}</div>
+                <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-[9rem,1fr]">
+                  {/* Logo column — single centered canvas */}
+                  <div className="flex items-center justify-center rounded-2xl bg-white p-3 ring-1 ring-black/5">
+                    <Logo name={p.name} mode="inline" className="h-28 sm:h-32 w-auto object-contain" />
                   </div>
-                  <span
-                    className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
-                      p.status === "Active"
-                        ? "bg-[color:var(--asparagus-25)] text-[color:var(--yellow-green)] ring-1 ring-[color:var(--yellow-green-60)]"
-                        : "bg-white/10 text-white/80 ring-1 ring-white/20"
-                    }`}
-                  >
-                    {p.status}
-                  </span>
-                </div>
-                <p className="mt-3 text-sm text-white/80">{p.blurb}</p>
-                <div className="mt-4 flex items-center justify-between">
-                  {p.url ? (
-                    <a
-                      href={p.url}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--yellow-green)] hover:text-white"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Visit site <ExternalLink className="h-4 w-4" />
-                    </a>
-                  ) : (
-                    <span className="text-sm text-white/50">No public site listed</span>
-                  )}
-                  <button className="inline-flex items-center gap-2 rounded-2xl bg-[color:var(--yellow-green)] px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">
-                    Learn more <ArrowRight className="h-4 w-4" />
-                  </button>
+                  {/* Content column */}
+                  <div className="flex min-w-0 flex-col min-h-[10rem]">
+                    {/* top row */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="min-w-0">
+                        <h3 className="text-base font-semibold leading-snug text-white line-clamp-2">{p.name}</h3>
+                        <div className="mt-0.5 text-[11px] uppercase tracking-wide text-[color:var(--yellow-green)]">{p.sector}</div>
+                      </div>
+                      <span
+                        className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+                          p.status === "Active"
+                            ? "bg-[color:var(--yellow-green-60)]/20 text-[color:var(--parchment)] ring-1 ring-[color:var(--yellow-green-60)]/30"
+                            : "bg-white/10 text-white/80 ring-1 ring-white/20"
+                        }`}
+                      >
+                        {p.status}
+                      </span>
+                    </div>
+                    {/* description */}
+                    <p className="mt-2 line-clamp-2 text-sm text-white/70">{p.blurb}</p>
+                    {/* actions pinned to bottom */}
+                    <div className="mt-auto flex items-center justify-between pt-3">
+                      {p.url ? (
+                        <a href={p.url} className="text-sm font-medium text-[color:var(--yellow-green)] hover:text-white" target="_blank" rel="noopener noreferrer">
+                          Visit site →
+                        </a>
+                      ) : (
+                        <span className="text-sm text-white/50">No public site listed</span>
+                      )}
+                      <button className="rounded-2xl bg-[color:var(--yellow-green)] px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">
+                        Learn more →
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}

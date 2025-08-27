@@ -120,8 +120,7 @@ export default function Home() {
         <Container>
           <div className="flex items-center justify-between py-4">
             <a href="#top" className="group inline-flex items-center gap-2">
-              <Boxes className="h-6 w-6 text-white transition group-hover:scale-110" />
-              <span className="text-base font-bold tracking-wide">Kernel Equity</span>
+              <Image src="/header-logo.png" alt="Kernel Equity" width={200} height={48} priority className="h-10 w-auto md:h-12" />
             </a>
             {/* Desktop Nav */}
             <nav className="hidden items-center gap-8 md:flex">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import {
   Rocket,
@@ -50,6 +50,103 @@ const CTAButton = ({
 const Card = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <div className={`rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 ${className}`}>{children}</div>
 );
+
+// Animated Kernel Logo Component
+const AnimatedKernelLogo = ({ className = "" }: { className?: string }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div 
+      className={`relative ${className}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Blurred green glow background */}
+      <div className="absolute inset-0 bg-[color:var(--yellow-green)] opacity-20 blur-3xl rounded-full scale-110" />
+      
+      {/* Stalk layer (bottom) */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <Image
+          src="/Kernel Stalk.png"
+          alt=""
+          fill
+          sizes="(max-width: 768px) 300px, 400px"
+          className="object-contain"
+          loading="eager"
+          priority
+        />
+      </motion.div>
+
+      {/* Leaves layer (middle) */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ 
+          duration: 0.5, 
+          delay: 0.45,
+          type: "spring" as const,
+          stiffness: 120,
+          damping: 12
+        }}
+      >
+        <Image
+          src="/Kernel Leaves.png"
+          alt=""
+          fill
+          sizes="(max-width: 768px) 300px, 400px"
+          className="object-contain"
+          loading="eager"
+          priority
+        />
+      </motion.div>
+
+      {/* Core layer (top) */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 0.4, 
+          delay: 0.9,
+          type: "spring" as const,
+          stiffness: 200,
+          damping: 10
+        }}
+      >
+        <Image
+          src="/Kernel Core.png"
+          alt="Kernel Logo"
+          fill
+          sizes="(max-width: 768px) 300px, 400px"
+          className="object-contain"
+          loading="eager"
+          priority
+        />
+      </motion.div>
+
+      {/* Floating animation wrapper */}
+      {!shouldReduceMotion && (
+        <motion.div
+          className="absolute inset-0"
+          animate={{ y: [0, -4, 0, 4, 0] }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+      )}
+    </motion.div>
+  );
+};
 
 // --- Data ---
 const sectors = [
@@ -235,35 +332,41 @@ export default function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6 rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm md:bg-slate-950/25"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm md:bg-slate-950/25"
             >
-              <Pill>Founder‑first venture • Nashville</Pill>
-              <h1 className="text-balance text-pretty text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                Build. Invest. Scale.
-                <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
-              </h1>
-              <p className="max-w-2xl text-lg text-white/90">
-                We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <CTAButton>
-                  Start a conversation <ArrowRight className="h-4 w-4" />
-                </CTAButton>
-                <a href="/portfolio">
-                  <CTAButton variant="secondary">Explore portfolio</CTAButton>
-                </a>
+              <div className="space-y-6">
+                <Pill>Founder‑first venture • Nashville</Pill>
+                <h1 className="text-balance text-pretty text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                  Build. Invest. Scale.
+                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
+                </h1>
+                <p className="max-w-2xl text-lg text-white/90">
+                  We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <CTAButton>
+                    Start a conversation <ArrowRight className="h-4 w-4" />
+                  </CTAButton>
+                  <a href="/portfolio">
+                    <CTAButton variant="secondary">Explore portfolio</CTAButton>
+                  </a>
+                </div>
+                <ul className="mt-4 flex flex-wrap gap-3 text-sm">
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Shield className="h-4 w-4 text-[color:var(--yellow-green)]" /> Aligned with founders
+                  </li>
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Rocket className="h-4 w-4 text-[color:var(--yellow-green)]" /> Faster to MVP
+                  </li>
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Handshake className="h-4 w-4 text-[color:var(--yellow-green)]" /> Operator‑led support
+                  </li>
+                </ul>
               </div>
-              <ul className="mt-4 flex flex-wrap gap-3 text-sm">
-                <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                  <Shield className="h-4 w-4 text-[color:var(--yellow-green)]" /> Aligned with founders
-                </li>
-                <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                  <Rocket className="h-4 w-4 text-[color:var(--yellow-green)]" /> Faster to MVP
-                </li>
-                <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                  <Handshake className="h-4 w-4 text-[color:var(--yellow-green)]" /> Operator‑led support
-                </li>
-              </ul>
+              {/* Animated Kernel Logo inside the box */}
+              <div className="flex items-center justify-center">
+                <AnimatedKernelLogo className="w-full max-w-lg h-80 md:h-96" />
+              </div>
             </motion.div>
           </div>
         </Container>

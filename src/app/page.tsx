@@ -327,12 +327,64 @@ export default function Home() {
         </div>
         <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(60%_60%_at_50%_20%,var(--asparagus-25),rgba(15,23,42,0))]" />
         <Container>
-          <div className="relative z-10 grid grid-cols-1 items-center gap-10 py-20 md:py-28">
+          <div className="relative z-10 py-8 md:py-28">
+            {/* Mobile: Logo first, then fade and text slides in */}
+            <div className="lg:hidden relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: [0, 1, 1, 0] }}
+                transition={{ 
+                  duration: 3.5,
+                  times: [0, 0.3, 0.8, 1],
+                  ease: "easeInOut"
+                }}
+                className="absolute top-16 left-1/2 transform -translate-x-1/2 z-10"
+              >
+                <AnimatedKernelLogo className="w-80 h-80" />
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 3.3 }}
+                className="space-y-6 rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm"
+              >
+                <Pill>Founder‑first venture • Nashville</Pill>
+                <h1 className="text-balance text-pretty text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+                  Build. Invest. Scale.
+                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
+                </h1>
+                <p className="max-w-2xl text-lg text-white/90">
+                  We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <CTAButton>
+                    Start a conversation <ArrowRight className="h-4 w-4" />
+                  </CTAButton>
+                  <a href="/portfolio">
+                    <CTAButton variant="secondary">Explore portfolio</CTAButton>
+                  </a>
+                </div>
+                <ul className="mt-4 flex flex-wrap gap-3 text-sm">
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Shield className="h-4 w-4 text-[color:var(--yellow-green)]" /> Aligned with founders
+                  </li>
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Rocket className="h-4 w-4 text-[color:var(--yellow-green)]" /> Faster to MVP
+                  </li>
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
+                    <Handshake className="h-4 w-4 text-[color:var(--yellow-green)]" /> Operator‑led support
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* Desktop: Side-by-side layout */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm md:bg-slate-950/25"
+              className="hidden lg:grid grid-cols-2 gap-8 items-center rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm"
             >
               <div className="space-y-6">
                 <Pill>Founder‑first venture • Nashville</Pill>

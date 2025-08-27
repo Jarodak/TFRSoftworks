@@ -7,17 +7,65 @@
   --foreground-rgb: 15, 23, 42;
   --background-start-rgb: 248, 250, 252;
   --background-end-rgb: 255, 255, 255;
-  /* Brand palette (new) */
-  --hunter-green: #386641;         /* hsla(132, 29%, 31%, 1) */
-  --asparagus: #6a994e;            /* hsla(98, 32%, 45%, 1) */
-  --yellow-green: #a7c957;         /* hsla(78, 51%, 56%, 1) */
-  --parchment: #f2e8cf;            /* hsla(43, 57%, 88%, 1) */
-  --bittersweet-shimmer: #bc4749;  /* hsla(359, 47%, 51%, 1) */
-  /* Alpha variants for utilities */
-  --hunter-green-60: #38664199; /* 60% */
-  --asparagus-60: #6a994e99;    /* 60% */
-  --yellow-green-60: #a7c95799; /* 60% */
-  --asparagus-25: #6a994e40;    /* 25% */
+  /* Brand palette - Kernel Equity */
+  /* Timberwolf - Neutral background + typography balance */
+  --timberwolf-100: #312e24;      /* Darkest - text over light backgrounds */
+  --timberwolf-200: #615b48;      /* Dark taupe - subtle borders */
+  --timberwolf-300: #92896c;      /* Medium taupe - text/borders */
+  --timberwolf-400: #b6b09c;      /* Light taupe - subtle dividers */
+  --timberwolf-500: #dad7cd;      /* Base neutral */
+  --timberwolf-600: #e2dfd7;      /* Light background */
+  --timberwolf-700: #e9e7e1;      /* Lighter background */
+  --timberwolf-800: #f0efeb;      /* Very light background */
+  --timberwolf-900: #f8f7f5;      /* Lightest background */
+  
+  /* Sage - Soft supporting accent (calm, approachable) */
+  --sage-100: #212619;            /* Darkest sage */
+  --sage-200: #434c33;            /* Dark sage */
+  --sage-300: #64724c;            /* Text/icons on dark backgrounds */
+  --sage-400: #859865;            /* Medium sage */
+  --sage-500: #a3b18a;            /* Base sage */
+  --sage-600: #b6c1a2;            /* Badges/subtle highlights */
+  --sage-700: #c8d0b9;            /* Light sage */
+  --sage-800: #dae0d0;            /* Light tints behind content */
+  --sage-900: #edefe8;            /* Lightest sage */
+  
+  /* Fern Green - Mid-tone green for secondary CTAs and UI accents */
+  --fern-green-100: #111911;      /* Darkest fern */
+  --fern-green-200: #233323;      /* Very dark fern */
+  --fern-green-300: #344c34;      /* Dark text on light backgrounds */
+  --fern-green-400: #466645;      /* Medium-dark fern */
+  --fern-green-500: #588157;      /* Base fern */
+  --fern-green-600: #739f72;      /* Softer backgrounds */
+  --fern-green-700: #96b795;      /* Light fern */
+  --fern-green-800: #b9cfb9;      /* Very light fern */
+  --fern-green-900: #dce7dc;      /* Lightest fern */
+  
+  /* Hunter Green - Primary brand anchor */
+  --hunter-green-100: #0c120d;    /* Darkest hunter - text on light */
+  --hunter-green-200: #172419;    /* Very dark hunter */
+  --hunter-green-300: #233626;    /* Dark hunter - deep backgrounds */
+  --hunter-green-400: #2e4833;    /* Medium-dark hunter */
+  --hunter-green-500: #3a5a40;    /* Base hunter */
+  --hunter-green-600: #56865f;    /* Hover states, lighter accents */
+  --hunter-green-700: #7aaa83;    /* Light hunter */
+  --hunter-green-800: #a7c7ac;    /* Pale backgrounds */
+  --hunter-green-900: #d3e3d6;    /* Lightest hunter */
+  
+  /* Brunswick Green - Deep supporting green */
+  --brunswick-green-100: #0a0f0d; /* Near-black for text */
+  --brunswick-green-200: #141f1a; /* Very dark brunswick */
+  --brunswick-green-300: #1f2e26; /* Dark brunswick text */
+  --brunswick-green-400: #293d33; /* Medium-dark brunswick */
+  --brunswick-green-500: #344e41; /* Base brunswick */
+  --brunswick-green-600: #527a66; /* Hover/active states */
+  --brunswick-green-700: #75a38c; /* Light brunswick */
+  --brunswick-green-800: #a3c2b3; /* Soft background layers */
+  --brunswick-green-900: #d1e0d9; /* Lightest brunswick */
+  
+  /* Charcoal - Neutral dark foundation */
+  --charcoal-1: #2B2D2F; /* Lighter charcoal for surfaces */
+  --charcoal-2: #1F2022; /* Deeper charcoal for base */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,11 +77,9 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    ) rgb(var(--background-start-rgb));
+  color: var(--timberwolf-900);
+  background:
+    radial-gradient(60% 60% at 50% 20%, var(--charcoal-1), transparent 70%),
+    linear-gradient(to bottom, var(--charcoal-2), var(--hunter-green-500));
   min-height: 100vh;
 }

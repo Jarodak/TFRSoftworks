@@ -46,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="min-h-screen bg-slate-50">
+      <body className="min-h-screen">
         {children}
       </body>
     </html>

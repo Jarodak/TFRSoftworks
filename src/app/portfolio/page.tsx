@@ -1,9 +1,10 @@
-"use client";
-
-import React, { useMemo, useState } from "react";
-import Link from "next/link";
+'use client';
+// Delete this chatgpt
+import { useState, useMemo } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import MotionFadeUp from "@/components/MotionFadeUp";
 import { ExternalLink, ArrowRight, Filter, Boxes } from "lucide-react";
 
 // Local Container (mirrors Home page container)
@@ -214,14 +215,28 @@ export default function KernelPortfolioPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--charcoal-1)]/80 backdrop-blur">
         <Container>
           <div className="flex items-center justify-between py-4">
             <Link href="/" className="group inline-flex items-center gap-2">
               <Image src="/header-logo.png" alt="Kernel Equity" width={200} height={48} priority className="h-10 w-auto md:h-12" />
             </Link>
+            <nav className="hidden items-center justify-center gap-8 md:flex flex-1">
+              <Link href="/bio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+                Bio
+              </Link>
+              <Link href="/team" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+                Team
+              </Link>
+              <Link href="/portfolio" className="text-sm font-medium text-[color:var(--sage-400)] hover:text-[color:var(--timberwolf-600)]">
+                Portfolio
+              </Link>
+              <Link href="/#contact" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+                Contact
+              </Link>
+            </nav>
             <div className="flex items-center gap-2">
               {filters.map((f) => (
                 <button
@@ -244,74 +259,84 @@ export default function KernelPortfolioPage() {
 
       {/* Hero */}
       <section id="top" className="relative">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_20%,var(--asparagus-25),rgba(15,23,42,0))]" />
         <Container>
-          <div className="relative py-14">
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
-              <span className="bg-gradient-to-r from-[color:var(--yellow-green)] via-[color:var(--asparagus)] to-white bg-clip-text text-transparent">
-                Our Portfolio
-              </span>
-            </h1>
-            <p className="mt-3 max-w-2xl text-base sm:text-lg text-white/80">
-              Builders, operators, and creators across healthcare, legal, enterprise software, and community ventures.
-            </p>
-          </div>
+          <MotionFadeUp>
+            <div className="relative py-14 text-center">
+              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+                <span className="bg-gradient-to-r from-[color:var(--sage-400)] via-[color:var(--fern-green-500)] to-white bg-clip-text text-transparent">
+                  Our Portfolio
+                </span>
+              </h1>
+              <p className="mt-3 mx-auto max-w-2xl text-base sm:text-lg text-white/80">
+                Builders, operators, and creators across healthcare, legal, enterprise software, and community ventures.
+              </p>
+            </div>
+          </MotionFadeUp>
         </Container>
       </section>
 
       {/* Grid */}
-      <section className="py-6">
+      <section className="bg-[color:var(--charcoal-1)] text-[color:var(--brunswick-green-400)] py-6">
         <Container>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {list.map((p, idx) => (
-              <motion.div
-                key={`${p.name}-${idx}`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: idx * 0.02 }}
-                className="h-full min-h-[220px] rounded-3xl bg-white/5 p-4 ring-1 ring-white/10 transition hover:ring-[color:var(--yellow-green-60)]"
-              >
+            {list.map((p: any, idx: number) => (
+              <MotionFadeUp key={p.name} delay={idx * 0.06}>
+                <motion.article
+                  initial={false}
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 28 }}
+                  className="
+                    group rounded-3xl bg-[color:var(--charcoal-1)] p-4 ring-1 ring-[color:var(--sage-400)]/30 hover:ring-[color:var(--sage-400)]/50 transition-colors transform-gpu will-change-transform
+                  "
+                  style={{ backfaceVisibility: "hidden" }}
+                >
                 <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-[9rem,1fr]">
-                  {/* Logo column — single centered canvas */}
-                  <div className="flex items-center justify-center rounded-2xl bg-white p-3 ring-1 ring-black/5">
-                    <Logo name={p.name} mode="inline" className="h-28 sm:h-32 w-auto object-contain" />
+                  {/* Logo column — fixed aspect to prevent CLS */}
+                  <div className="relative rounded-2xl bg-white ring-1 ring-black/5">
+                    <div className="aspect-[3/2] flex items-center justify-center p-3">
+                      <Logo name={p.name} mode="inline" className="max-h-full max-w-full object-contain" />
+                    </div>
                   </div>
                   {/* Content column */}
                   <div className="flex min-w-0 flex-col min-h-[10rem]">
                     {/* top row */}
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <h3 className="text-base font-semibold leading-snug text-white line-clamp-2">{p.name}</h3>
-                        <div className="mt-0.5 text-[11px] uppercase tracking-wide text-[color:var(--yellow-green)]">{p.sector}</div>
+                        <h3 className="text-base font-semibold leading-snug text-[color:var(--sage-400)] line-clamp-2">
+                          {p.name}
+                        </h3>
+                        <div className="mt-0.5 text-[11px] uppercase tracking-wide text-[color:var(--sage-400)]">
+                          {p.sector}
+                        </div>
                       </div>
-                      <span
-                        className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-                          p.status === "Active"
-                            ? "bg-[color:var(--yellow-green-60)]/20 text-[color:var(--parchment)] ring-1 ring-[color:var(--yellow-green-60)]/30"
-                            : "bg-white/10 text-white/80 ring-1 ring-white/20"
-                        }`}
-                      >
+                      <span className={`shrink-0 rounded-full bg-[color:var(--sage-600)] px-2 py-0.5 text-[11px] font-semibold text-[color:var(--hunter-green-100)] ring-1 ring-[color:var(--sage-400)]`}>
                         {p.status}
                       </span>
                     </div>
                     {/* description */}
-                    <p className="mt-2 line-clamp-2 text-sm text-white/70">{p.blurb}</p>
-                    {/* actions pinned to bottom */}
-                    <div className="mt-auto flex items-center justify-between pt-3">
+                    <p className="mt-3 text-sm text-[color:var(--timberwolf-600)]">{p.blurb}</p>
+                    {/* bottom row */}
+                    <div className="mt-auto flex items-center justify-between pt-4">
                       {p.url ? (
-                        <a href={p.url} className="text-sm font-medium text-[color:var(--yellow-green)] hover:text-white" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={p.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium text-[color:var(--sage-400)] hover:text-[color:var(--timberwolf-600)] transition-colors"
+                        >
                           Visit site →
                         </a>
                       ) : (
-                        <span className="text-sm text-white/50">No public site listed</span>
+                        <span className="text-sm text-[color:var(--timberwolf-700)]">No public site listed</span>
                       )}
-                      <button className="rounded-2xl bg-[color:var(--yellow-green)] px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">
+                      <button className="rounded-2xl bg-[color:var(--sage-500)] px-4 py-2 text-sm font-semibold text-[color:var(--hunter-green-100)] hover:bg-[color:var(--fern-green-500)]">
                         Learn more →
                       </button>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+                </motion.article>
+              </MotionFadeUp>
             ))}
           </div>
         </Container>
@@ -320,13 +345,13 @@ export default function KernelPortfolioPage() {
       {/* CTA */}
       <section className="py-16">
         <Container>
-          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--asparagus-25)] to-[var(--yellow-green-60)] p-8 text-center md:flex-row md:text-left">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-[color:var(--charcoal-1)] ring-1 ring-[color:var(--sage-400)]/30 p-8 text-center md:flex-row md:text-left">
             <div>
-              <h3 className="text-2xl font-bold">Are we missing a partner?</h3>
-              <p className="mt-1 text-white/80">Send updates and new logos. We&#39;ll refresh this page as your ecosystem grows.</p>
+              <h3 className="text-2xl font-bold text-[color:var(--sage-400)]">Are we missing a partner?</h3>
+              <p className="mt-1 text-[color:var(--timberwolf-600)]">Send updates and new logos. We&#39;ll refresh this page as your ecosystem grows.</p>
             </div>
             <div>
-              <a href="mailto:hello@kernelequity.com" className="inline-flex items-center gap-2 rounded-2xl bg-[color:var(--yellow-green)] px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">
+              <a href="mailto:hello@kernelequity.com" className="inline-flex items-center gap-2 rounded-2xl bg-[color:var(--sage-500)] px-5 py-3 text-sm font-semibold text-[color:var(--hunter-green-100)] hover:bg-[color:var(--fern-green-500)]">
                 Email updates <ArrowRight className="h-4 w-4" />
               </a>
             </div>

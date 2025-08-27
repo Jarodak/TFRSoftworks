@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import MotionFadeUp from "@/components/MotionFadeUp";
+import AboutUs from "@/components/AboutUs";
 import {
   Rocket,
   Handshake,
@@ -24,7 +27,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Pill = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-flex items-center rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 text-xs font-medium tracking-wide text-[color:var(--yellow-green)] ring-1 ring-[color:var(--yellow-green-60)] backdrop-blur">
+  <span className="inline-flex items-center rounded-full bg-[color:var(--fern-green-800)] px-3 py-1 text-xs font-medium tracking-wide text-[color:var(--sage-300)] ring-1 ring-[color:var(--sage-400)] backdrop-blur">
     {children}
   </span>
 );
@@ -42,13 +45,13 @@ const CTAButton = ({
     "inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
   const styles =
     variant === "primary"
-      ? "bg-[color:var(--yellow-green)] text-slate-900 hover:bg-[color:var(--asparagus)] focus-visible:ring-[color:var(--yellow-green)]"
-      : "bg-transparent text-[color:var(--yellow-green)] ring-1 ring-[color:var(--yellow-green)] hover:bg-[color:var(--asparagus-25)]";
+      ? "bg-[color:var(--sage-500)] text-[color:var(--hunter-green-100)] hover:bg-[color:var(--fern-green-500)] focus-visible:ring-[color:var(--sage-400)]"
+      : "bg-transparent text-[color:var(--sage-400)] ring-1 ring-[color:var(--sage-500)] hover:bg-[color:var(--fern-green-800)]";
   return <button className={`${base} ${styles}`} onClick={onClick}>{children}</button>;
 };
 
 const Card = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-  <div className={`rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 ${className}`}>{children}</div>
+  <div className={`rounded-3xl bg-[color:var(--charcoal-1)] p-6 ring-1 ring-[color:var(--sage-400)]/30 ${className}`}>{children}</div>
 );
 
 // Animated Kernel Logo Component
@@ -63,7 +66,7 @@ const AnimatedKernelLogo = ({ className = "" }: { className?: string }) => {
       transition={{ duration: 0.6 }}
     >
       {/* Blurred green glow background */}
-      <div className="absolute inset-0 bg-[color:var(--yellow-green)] opacity-20 blur-3xl rounded-full scale-110" />
+      <div className="absolute inset-0 bg-[color:var(--sage-500)] opacity-20 blur-3xl rounded-full scale-110" />
       
       {/* Stalk layer (bottom) */}
       <motion.div 
@@ -201,7 +204,6 @@ const pillars = [
 
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [email, setEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -211,62 +213,28 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+    <div className="min-h-screen text-[color:var(--timberwolf-900)]">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--charcoal-1)]/80 backdrop-blur">
         <Container>
           <div className="flex items-center justify-between py-4">
             <a href="#top" className="group inline-flex items-center gap-2">
               <Image src="/header-logo.png" alt="Kernel Equity" width={200} height={48} priority className="h-10 w-auto md:h-12" />
             </a>
             {/* Desktop Nav */}
-            <nav className="hidden items-center gap-8 md:flex">
-              <a href="/bio" className="text-sm font-medium text-white/80 hover:text-white">
+            <nav className="hidden items-center justify-center gap-8 md:flex flex-1">
+              <a href="/bio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Bio
               </a>
-              <a href="/team" className="text-sm font-medium text-white/80 hover:text-white">
+              <a href="/team" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Team
               </a>
-              <div
-                className="relative"
-                onMouseEnter={() => setSolutionsOpen(true)}
-                onMouseLeave={() => setSolutionsOpen(false)}
-              >
-                <button
-                  className="text-sm font-medium text-white/80 hover:text-white"
-                  aria-expanded={solutionsOpen}
-                >
-                  Solutions
-                </button>
-                {/* Hover bridge to prevent accidental close when moving cursor */}
-                {solutionsOpen && (
-                  <div className="absolute left-0 right-0 top-full h-3" />
-                )}
-                {/* Mega dropdown */}
-                {solutionsOpen && (
-                  <div className="absolute left-1/2 mt-3 w-[560px] -translate-x-1/2">
-                    <div className="rounded-3xl border border-white/10 bg-slate-900/95 p-6 shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
-                      <div className="grid grid-cols-2 gap-4">
-                        {sectors.map((s) => (
-                          <a
-                            key={s.title}
-                            href={`#sectors`}
-                            className="group rounded-2xl p-4 transition hover:bg-white/5"
-                            onClick={() => setSolutionsOpen(false)}
-                          >
-                            <div className="mb-2 text-white/90">{s.icon}</div>
-                            <div className="text-sm font-semibold text-white">{s.title}</div>
-                            <p className="mt-1 text-xs text-white/70">{s.copy}</p>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-              <a className="text-sm font-medium text-white/80 hover:text-white" href="/portfolio">Portfolio</a>
-              <a className="text-sm font-medium text-white/80 hover:text-white" href="#resources">Resources</a>
-              <a className="text-sm font-medium text-white/80 hover:text-white" href="#about">About</a>
+              <a href="/portfolio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+                Portfolio
+              </a>
+              <a href="/#contact" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+                Contact
+              </a>
             </nav>
             <div className="hidden md:block">
               <CTAButton>
@@ -288,9 +256,6 @@ export default function Home() {
           {mobileOpen && (
             <div className="md:hidden">
               <div className="space-y-2 border-t border-white/10 py-4">
-                <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="#sectors" onClick={() => setMobileOpen(false)}>
-                  Solutions
-                </a>
                 <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="/bio" onClick={() => setMobileOpen(false)}>
                   Bio
                 </a>
@@ -316,7 +281,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-visible md:overflow-hidden min-h-[70vh]">
+      <section id="top" className="relative bg-gradient-to-b from-[color:var(--charcoal-2)] to-[color:var(--hunter-green-500)] overflow-visible md:overflow-hidden min-h-[70vh]">
         {/* Background banner image */}
         <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
           <Image
@@ -328,12 +293,11 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-[50%_35%]"
           />
-          {/* Dark/brand overlay for text contrast */}
-          <div className="absolute inset-0 bg-slate-950/60" />
+          {/* Dark overlay for text contrast */}
+          <div className="absolute inset-0 bg-[color:var(--charcoal-2)]/60" />
           {/* Bottom scrim to further lift foreground text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--charcoal-1)]/50 via-transparent to-transparent" />
         </div>
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(60%_60%_at_50%_20%,var(--asparagus-25),rgba(15,23,42,0))]" />
         <Container>
           <div className="relative z-10 py-8 md:py-28">
             {/* Mobile: Logo first, then fade and text slides in */}
@@ -360,7 +324,7 @@ export default function Home() {
                 <Pill>Founder‑first venture • Nashville</Pill>
                 <h1 className="text-balance text-pretty text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
                   Build. Invest. Scale.
-                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
+                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--sage-400)] to-[var(--timberwolf-600)]">Human-centered venture.</span>
                 </h1>
                 <p className="max-w-2xl text-lg text-white/90">
                   We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
@@ -374,14 +338,14 @@ export default function Home() {
                   </a>
                 </div>
                 <ul className="mt-4 flex flex-wrap gap-3 text-sm">
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Shield className="h-4 w-4 text-[color:var(--yellow-green)]" /> Aligned with founders
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Shield className="h-4 w-4 text-[color:var(--sage-400)]" /> Aligned with founders
                   </li>
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Rocket className="h-4 w-4 text-[color:var(--yellow-green)]" /> Faster to MVP
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Rocket className="h-4 w-4 text-[color:var(--sage-400)]" /> Faster to MVP
                   </li>
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Handshake className="h-4 w-4 text-[color:var(--yellow-green)]" /> Operator‑led support
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Handshake className="h-4 w-4 text-[color:var(--sage-400)]" /> Operator‑led support
                   </li>
                 </ul>
               </motion.div>
@@ -398,7 +362,7 @@ export default function Home() {
                 <Pill>Founder‑first venture • Nashville</Pill>
                 <h1 className="text-balance text-pretty text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
                   Build. Invest. Scale.
-                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
+                  <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--sage-400)] to-[var(--timberwolf-600)]">Human-centered venture.</span>
                 </h1>
                 <p className="max-w-2xl text-lg text-white/90">
                   We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
@@ -412,14 +376,14 @@ export default function Home() {
                   </a>
                 </div>
                 <ul className="mt-4 flex flex-wrap gap-3 text-sm">
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Shield className="h-4 w-4 text-[color:var(--yellow-green)]" /> Aligned with founders
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Shield className="h-4 w-4 text-[color:var(--sage-400)]" /> Aligned with founders
                   </li>
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Rocket className="h-4 w-4 text-[color:var(--yellow-green)]" /> Faster to MVP
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Rocket className="h-4 w-4 text-[color:var(--sage-400)]" /> Faster to MVP
                   </li>
-                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--asparagus-25)] px-3 py-1 ring-1 ring-[color:var(--yellow-green-60)]">
-                    <Handshake className="h-4 w-4 text-[color:var(--yellow-green)]" /> Operator‑led support
+                  <li className="inline-flex items-center gap-2 rounded-full bg-[color:var(--charcoal-1)] px-3 py-1 ring-1 ring-[color:var(--sage-400)]/30">
+                    <Handshake className="h-4 w-4 text-[color:var(--sage-400)]" /> Operator‑led support
                   </li>
                 </ul>
               </div>
@@ -432,13 +396,13 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Sectors */}
-      <section id="sectors" className="py-20">
+      {/* Market Solutions - Dark Band */}
+      <section id="sectors" className="bg-[color:var(--charcoal-1)] text-[color:var(--timberwolf-800)] py-20">
         <Container>
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <h2 className="text-3xl font-bold">Market Solutions</h2>
-              <p className="mt-2 max-w-2xl text-white/70">
+              <h2 className="text-3xl font-bold text-[color:var(--sage-400)]">Market Focus</h2>
+              <p className="mt-2 max-w-2xl text-[color:var(--timberwolf-600)]">
                 Vertical expertise across healthcare, legal, enterprise SaaS, and the public sector.
               </p>
             </div>
@@ -446,22 +410,22 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {sectors.map((s) => (
               <Card key={s.title}>
-                <div className="mb-3 text-[color:var(--yellow-green)]">{s.icon}</div>
+                <div className="mb-3 text-[color:var(--sage-400)]">{s.icon}</div>
                 <div className="text-lg font-semibold">{s.title}</div>
-                <p className="mt-1 text-sm text-white/70">{s.copy}</p>
+                <p className="mt-1 text-sm text-[color:var(--timberwolf-600)]">{s.copy}</p>
               </Card>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Approach */}
-      <section id="approach" className="border-t border-white/10 bg-slate-900/40 py-20">
+      {/* Our Approach - Dark Band */}
+      <section id="approach" className="bg-[color:var(--charcoal-1)] text-[color:var(--timberwolf-800)] py-20">
         <Container>
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <h2 className="text-3xl font-bold">Our Approach</h2>
-              <p className="mt-2 max-w-2xl text-white/70">
+              <h2 className="text-3xl font-bold text-[color:var(--sage-400)]">Our Approach</h2>
+              <p className="mt-2 max-w-2xl text-[color:var(--timberwolf-600)]">
                 We combine engineering, capital, and operating experience to turn focus into traction.
               </p>
             </div>
@@ -469,9 +433,9 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p) => (
               <Card key={p.title}>
-                <div className="mb-3 text-[color:var(--yellow-green)]">{p.icon}</div>
+                <div className="mb-3 text-[color:var(--sage-400)]">{p.icon}</div>
                 <div className="text-lg font-semibold">{p.title}</div>
-                <p className="mt-1 text-sm text-white/70">{p.copy}</p>
+                <p className="mt-1 text-sm text-[color:var(--timberwolf-600)]">{p.copy}</p>
               </Card>
             ))}
           </div>
@@ -481,10 +445,10 @@ export default function Home() {
       {/* CTA Band */}
       <section className="py-16">
         <Container>
-          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--asparagus-25)] to-[var(--yellow-green-60)] p-8 text-center md:flex-row md:text-left">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl bg-[color:var(--charcoal-1)] ring-1 ring-[color:var(--sage-400)]/30 p-8 text-center md:flex-row md:text-left">
             <div>
-              <h3 className="text-2xl font-bold">Ready to find your Kernel?</h3>
-              <p className="mt-1 text-white/80">Let&#39;s explore how we can help you build, invest, and scale—together.</p>
+              <h3 className="text-2xl font-bold text-[color:var(--sage-400)]">Ready to find your Kernel?</h3>
+              <p className="mt-1 text-[color:var(--timberwolf-600)]">Let&#39;s explore how we can help you build, invest, and scale—together.</p>
             </div>
             <div className="flex gap-3">
               <CTAButton>
@@ -512,7 +476,6 @@ export default function Home() {
             <div>
               <div className="text-sm font-semibold text-white">Explore</div>
               <ul className="mt-3 space-y-2 text-sm text-white/70">
-                <li><a className="hover:text-white" href="#sectors">Solutions</a></li>
                 <li><a className="hover:text-white" href="#approach">Approach</a></li>
                 <li><a className="hover:text-white" href="/portfolio">Portfolio</a></li>
                 <li><a className="hover:text-white" href="#resources">Resources</a></li>
@@ -534,12 +497,15 @@ export default function Home() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@company.com"
-                  className="w-full rounded-2xl bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/50 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--yellow-green)]"
+                  className="w-full rounded-2xl bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/50 ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--sage-400)]"
                   required
                 />
-                <button type="submit" className="rounded-2xl bg-[color:var(--yellow-green)] px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">
-                  Subscribe
-                </button>
+                <a
+                href="#contact"
+                className="rounded-2xl bg-[color:var(--sage-500)] px-6 py-3 text-sm font-semibold text-[color:var(--hunter-green-100)] transition-colors hover:bg-[color:var(--timberwolf-600)]"
+              >
+                Start a conversation
+              </a>
               </form>
             </div>
           </div>

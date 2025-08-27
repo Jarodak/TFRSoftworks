@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight, Filter, Boxes } from "lucide-react";
 
@@ -114,10 +115,10 @@ export default function KernelPortfolioPage() {
       <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
         <Container>
           <div className="flex items-center justify-between py-4">
-            <a href="/" className="group inline-flex items-center gap-2">
+            <Link href="/" className="group inline-flex items-center gap-2">
               <Boxes className="h-6 w-6 text-[color:var(--yellow-green)]" />
               <span className="text-base font-bold tracking-wide">Kernel Equity</span>
-            </a>
+            </Link>
             <div className="flex items-center gap-2">
               {filters.map((f) => (
                 <button
@@ -208,7 +209,7 @@ export default function KernelPortfolioPage() {
           <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-[var(--asparagus-25)] to-[var(--yellow-green-60)] p-8 text-center md:flex-row md:text-left">
             <div>
               <h3 className="text-2xl font-bold">Are we missing a partner?</h3>
-              <p className="mt-1 text-white/80">Send updates and new logos. We'll refresh this page as your ecosystem grows.</p>
+              <p className="mt-1 text-white/80">Send updates and new logos. We&#39;ll refresh this page as your ecosystem grows.</p>
             </div>
             <div>
               <a href="mailto:hello@kernelequity.com" className="inline-flex items-center gap-2 rounded-2xl bg-[color:var(--yellow-green)] px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-[color:var(--asparagus)]">

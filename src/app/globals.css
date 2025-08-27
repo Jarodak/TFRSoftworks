@@ -7,6 +7,17 @@
   --foreground-rgb: 15, 23, 42;
   --background-start-rgb: 248, 250, 252;
   --background-end-rgb: 255, 255, 255;
+  /* Brand palette (new) */
+  --hunter-green: #386641;         /* hsla(132, 29%, 31%, 1) */
+  --asparagus: #6a994e;            /* hsla(98, 32%, 45%, 1) */
+  --yellow-green: #a7c957;         /* hsla(78, 51%, 56%, 1) */
+  --parchment: #f2e8cf;            /* hsla(43, 57%, 88%, 1) */
+  --bittersweet-shimmer: #bc4749;  /* hsla(359, 47%, 51%, 1) */
+  /* Alpha variants for utilities */
+  --hunter-green-60: #38664199; /* 60% */
+  --asparagus-60: #6a994e99;    /* 60% */
+  --yellow-green-60: #a7c95799; /* 60% */
+  --asparagus-25: #6a994e40;    /* 25% */
 }
 
 @media (prefers-color-scheme: dark) {

@@ -24,7 +24,7 @@ export default function AboutUs() {
               As Nashville grows and evolves, so does DevDigital/Kernel Equity.
               Kernel (launched in early 2017) celebrates the key role technology
               plays in innovation. We try to embody the overlap where technology
-              and innovation create, develop and deliver "what's next."
+              and innovation create, develop and deliver &ldquo;what&apos;s next.&rdquo;
             </p>
             <p>
               Whether you are a small company trying to break through the
@@ -41,13 +41,13 @@ export default function AboutUs() {
             </p>
             <p>
               If you want to work hard, you know what you are great at (and
-              not), and you are fun to deal with, we want to meet you. Let's
+              not), and you are fun to deal with, we want to meet you. Let&apos;s
               find a way to work together on a newsworthy cause. Maybe, instead
-              of watching Nashville's growth, we can be a catalyst for it.
+              of watching Nashville&apos;s growth, we can be a catalyst for it.
             </p>
 
             <p className="font-semibold text-[color:var(--sage-400)]">
-              Kernel – an equity firm, not just a fund
+              Kernel &ndash; an equity firm, not just a fund
             </p>
           </div>
 

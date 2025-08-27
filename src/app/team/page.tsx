@@ -1,7 +1,6 @@
 'use client';
 // Delete this chatgpt
 
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,9 +13,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
 interface TeamMemberProps {
   name: string;
   title: string;
-  bio: string;
-  photo?: string;
-  delay: number;
+  photo: string;
 }
 
 const getLinkedInUrl = (name: string) => {
@@ -31,7 +28,7 @@ const getLinkedInUrl = (name: string) => {
   return linkedInUrls[name] || "";
 };
 
-function TeamMember({ name, title, bio, photo, delay }: TeamMemberProps) {
+function TeamMember({ name, title, photo }: TeamMemberProps) {
   const shouldReduceMotion = useReducedMotion();
   const linkedInUrl = getLinkedInUrl(name);
 
@@ -202,9 +199,7 @@ export default function Team() {
                 <TeamMember
                   name={member.name}
                   title={member.title}
-                  bio={member.bio}
                   photo={member.photo}
-                  delay={0}
                 />
               </MotionFadeUp>
             ))}

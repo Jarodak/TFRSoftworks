@@ -4,8 +4,6 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import MotionFadeUp from "@/components/MotionFadeUp";
-import AboutUs from "@/components/AboutUs";
 import {
   Rocket,
   Handshake,
@@ -218,23 +216,23 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--charcoal-1)]/80 backdrop-blur">
         <Container>
           <div className="flex items-center justify-between py-4">
-            <a href="#top" className="group inline-flex items-center gap-2">
+            <Link href="#top" className="group inline-flex items-center gap-2">
               <Image src="/header-logo.png" alt="Kernel Equity" width={200} height={48} priority className="h-10 w-auto md:h-12" />
-            </a>
+            </Link>
             {/* Desktop Nav */}
             <nav className="hidden items-center justify-center gap-8 md:flex flex-1">
-              <a href="/bio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+              <Link href="/bio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Bio
-              </a>
-              <a href="/team" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+              </Link>
+              <Link href="/team" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Team
-              </a>
-              <a href="/portfolio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+              </Link>
+              <Link href="/portfolio" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Portfolio
-              </a>
-              <a href="/#contact" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
+              </Link>
+              <Link href="/#contact" className="text-sm font-medium text-[color:var(--timberwolf-700)] hover:text-[color:var(--timberwolf-600)]">
                 Contact
-              </a>
+              </Link>
             </nav>
             <div className="hidden md:block">
               <CTAButton>

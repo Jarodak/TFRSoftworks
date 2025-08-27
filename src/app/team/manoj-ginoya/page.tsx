@@ -98,7 +98,7 @@ export default function ManojGinoya() {
                   Manoj Ginoya is the Head of Technology at Kernel Equity. With 17 years of experience in software and web application development, Ginoya has risen from Web Developer to technology leader. He has expertise in project management, strategic planning, cross-functional team leadership, and process improvement.
                 </p>
                 <p className="text-[color:var(--timberwolf-600)] leading-relaxed">
-                  He is a certified Scrum Master and a Google Professional Cloud Architect with skills spanning AWS, DevOps, Docker, Docker Swarm, and Kubernetes. His technical leadership helps drive innovation and scalable solutions across Kernel Equity's portfolio companies.
+                  He is a certified Scrum Master and a Google Professional Cloud Architect with skills spanning AWS, DevOps, Docker, Docker Swarm, and Kubernetes. His technical leadership helps drive innovation and scalable solutions across Kernel Equity&apos;s portfolio companies.
                 </p>
               </div>
             </div>

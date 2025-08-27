@@ -1,11 +1,11 @@
 'use client';
 // Delete this chatgpt
 import { useState, useMemo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Filter } from "lucide-react";
 import MotionFadeUp from "@/components/MotionFadeUp";
-import { ExternalLink, ArrowRight, Filter, Boxes } from "lucide-react";
 
 // Local Container (mirrors Home page container)
 const Container = ({ children }: { children: React.ReactNode }) => (
@@ -279,7 +279,7 @@ export default function KernelPortfolioPage() {
       <section className="bg-[color:var(--charcoal-1)] text-[color:var(--brunswick-green-400)] py-6">
         <Container>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {list.map((p: any, idx: number) => (
+            {list.map((p: { name: string; sector: string; status: string; blurb: string; url?: string | null }, idx: number) => (
               <MotionFadeUp key={p.name} delay={idx * 0.06}>
                 <motion.article
                   initial={false}

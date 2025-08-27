@@ -98,10 +98,10 @@ export default function ToddMcCullough() {
                   Todd McCullough serves as Partner and Advisor at Kernel Equity. His career is centered on business growth and innovation. He previously led Growth and Innovation at North Highland and has advised more than 100 Fortune 500 companies across industries including financial services, healthcare, retail, and food service.
                 </p>
                 <p className="text-[color:var(--timberwolf-600)] leading-relaxed mb-6">
-                  McCullough also served as a senior partner at Monitor Group after leading Doblin, now part of Deloitte's Innovation Strategy practice. Known as a "consultant to consultants," he has advised five of the six largest global management consulting firms. He holds both a CPA and an MBA, combining strong financial acumen with expertise in design thinking.
+                  McCullough also served as a senior partner at Monitor Group after leading Doblin, now part of Deloitte&apos;s Innovation Strategy practice. Known as a &ldquo;consultant to consultants,&rdquo; he has advised five of the six largest global management consulting firms. He holds both a CPA and an MBA, combining strong financial acumen with expertise in design thinking.
                 </p>
                 <p className="text-[color:var(--timberwolf-600)] leading-relaxed">
-                  McCullough has taught business through Vanderbilt and Notre Dame as well as design at the Institute of Design in Chicago, with upcoming courses at O'More College of Design. His representative client base includes Ford, McDonald's, EY, Pfizer, HCA, Subway, Boston Scientific, SC Johnson, Coca-Cola, Target, and GE.
+                  McCullough has taught business through Vanderbilt and Notre Dame as well as design at the Institute of Design in Chicago, with upcoming courses at O&apos;More College of Design. His representative client base includes Ford, McDonald&apos;s, EY, Pfizer, HCA, Subway, Boston Scientific, SC Johnson, Coca-Cola, Target, and GE.
                 </p>
               </div>
             </div>

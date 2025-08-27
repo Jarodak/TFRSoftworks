@@ -65,7 +65,7 @@ export default function Bio() {
                   Technology Roots
                 </h2>
                 <p className="text-lg text-[color:var(--timberwolf-600)] leading-relaxed">
-                  Kernel Equity has deep roots in technology. DevDigital has been developing websites, apps, infrastructure and hosting services for ten years in Nashville. By helping many young companies build their technology platform without fueling high burn rates, Dev's experience and efficiency allowed them to learn and pivot before their money ran out.
+                  Kernel Equity has deep roots in technology. DevDigital has been developing websites, apps, infrastructure and hosting services for ten years in Nashville. By helping many young companies build their technology platform without fueling high burn rates, Dev&apos;s experience and efficiency allowed them to learn and pivot before their money ran out.
                 </p>
               </motion.section>
 
@@ -80,7 +80,7 @@ export default function Bio() {
                   Smart Money Fails, Mostly
                 </h2>
                 <p className="text-lg text-[color:var(--timberwolf-600)] leading-relaxed">
-                  People talk about the importance of getting smart money, equity partners who bring money, past successes, have experience in your industry, and have connections. These can be valuable assets. For most young companies, they aren't an option. Many of these companies are in Silicon Valley, and getting on their radar from Nashville is no small task. If you are lucky enough to be backed by them, your chances of success will still be less than 25%, according to research by Shikhar Ghosh, a senior lecturer at Harvard Business School.
+                  People talk about the importance of getting smart money, equity partners who bring money, past successes, have experience in your industry, and have connections. These can be valuable assets. For most young companies, they aren&apos;t an option. Many of these companies are in Silicon Valley, and getting on their radar from Nashville is no small task. If you are lucky enough to be backed by them, your chances of success will still be less than 25%, according to research by Shikhar Ghosh, a senior lecturer at Harvard Business School.
                 </p>
               </motion.section>
 
@@ -95,7 +95,7 @@ export default function Bio() {
                   Focus on the Kernel
                 </h2>
                 <p className="text-lg text-[color:var(--timberwolf-600)] leading-relaxed mb-6">
-                  At Kernel we believe too much emphasis is paid to 'raising money.' When investment funding becomes the scorecard, as it often does, an important balance is lost. Clay Christensen admonishes "be patient for growth, but impatient for profits." With very few exceptions, this is the smart path. Too much funding can be as harmful as too little.
+                  At Kernel we believe too much emphasis is paid to &apos;raising money.&apos; When investment funding becomes the scorecard, as it often does, an important balance is lost. Clay Christensen admonishes &ldquo;be patient for growth, but impatient for profits.&rdquo; With very few exceptions, this is the smart path. Too much funding can be as harmful as too little.
                 </p>
                 <p className="text-lg text-[color:var(--timberwolf-600)] leading-relaxed">
                   Using bottom-up street smarts and top-down strategic thinking, we help our clients seek a breakeven quickly, find the core value (the Kernel) for customers, craft a solid business model, and yes, develop a compelling technology platform. This balanced breakthrough approach gives them more confidence and leverage to get the smart money and better utilize it.
@@ -113,7 +113,7 @@ export default function Bio() {
                   Kernel – An Equity Firm, Not Just a Fund
                 </h2>
                 <p className="text-lg text-[color:var(--timberwolf-600)] leading-relaxed">
-                  We're partners in your journey, not just investors in your outcome.
+                  We&apos;re partners in your journey, not just investors in your outcome.
                 </p>
               </motion.section>
             </div>

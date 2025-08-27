@@ -99,7 +99,7 @@ export default function PeterMarcum() {
                   Peter Marcum is the Founding Partner of Kernel Equity. He began his career in the 1980s as a self-taught programmer developing public housing software. He went on to build JML Computers and Nashville Computer Liquidators, which grew to $100 million in sales before being sold in 2000.
                 </p>
                 <p className="text-[color:var(--timberwolf-600)] leading-relaxed mb-6">
-                  He later co-founded Essex Technology Group, a major supplier for Bargain Hunt's 90 retail stores, which sold to TH Lee in 2015. Marcum also founded WV Fiber, a wholesale bandwidth network operating across the United States and Europe, which included Usenet Server; that business was sold in 2007.
+                  He later co-founded Essex Technology Group, a major supplier for Bargain Hunt&apos;s 90 retail stores, which sold to TH Lee in 2015. Marcum also founded WV Fiber, a wholesale bandwidth network operating across the United States and Europe, which included Usenet Server; that business was sold in 2007.
                 </p>
                 <p className="text-[color:var(--timberwolf-600)] leading-relaxed">
                   Following that exit, he launched DevDigital, a web and app development firm with over 125 full-time associates. In 2016, he established Kernel Equity through DevDigital to provide technical resources, development expertise, and capital to startups in industries such as education, healthcare, music, and e-commerce, with notable exits including CoreCommerce, OtherLeft, and Maxx Content.

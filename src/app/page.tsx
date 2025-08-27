@@ -212,7 +212,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden min-h-[70vh]">
+      <section id="top" className="relative overflow-visible md:overflow-hidden min-h-[70vh]">
         {/* Background banner image */}
         <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
           <Image
@@ -239,9 +239,9 @@ export default function Home() {
               className="space-y-6 rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm md:bg-slate-950/25"
             >
               <Pill>Founder‑first venture • Nashville</Pill>
-              <h1 className="text-balance text-5xl font-extrabold leading-tight sm:text-6xl md:text-7xl">
+              <h1 className="text-balance text-pretty text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
                 Build. Invest. Scale.
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human‑centered venture.</span>
+                <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--yellow-green)] to-[var(--parchment)]">Human-centered venture.</span>
               </h1>
               <p className="max-w-2xl text-lg text-white/90">
                 We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.

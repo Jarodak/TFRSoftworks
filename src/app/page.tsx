@@ -221,6 +221,12 @@ export default function Home() {
             </a>
             {/* Desktop Nav */}
             <nav className="hidden items-center gap-8 md:flex">
+              <a href="/bio" className="text-sm font-medium text-white/80 hover:text-white">
+                Bio
+              </a>
+              <a href="/team" className="text-sm font-medium text-white/80 hover:text-white">
+                Team
+              </a>
               <div
                 className="relative"
                 onMouseEnter={() => setSolutionsOpen(true)}
@@ -258,7 +264,6 @@ export default function Home() {
                   </div>
                 )}
               </div>
-              <a className="text-sm font-medium text-white/80 hover:text-white" href="#approach">Approach</a>
               <a className="text-sm font-medium text-white/80 hover:text-white" href="/portfolio">Portfolio</a>
               <a className="text-sm font-medium text-white/80 hover:text-white" href="#resources">Resources</a>
               <a className="text-sm font-medium text-white/80 hover:text-white" href="#about">About</a>
@@ -286,8 +291,11 @@ export default function Home() {
                 <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="#sectors" onClick={() => setMobileOpen(false)}>
                   Solutions
                 </a>
-                <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="#approach" onClick={() => setMobileOpen(false)}>
-                  Approach
+                <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="/bio" onClick={() => setMobileOpen(false)}>
+                  Bio
+                </a>
+                <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="/team" onClick={() => setMobileOpen(false)}>
+                  Team
                 </a>
                 <a className="block rounded-xl px-2 py-2 text-sm hover:bg-[color:var(--asparagus-25)]" href="/portfolio" onClick={() => setMobileOpen(false)}>
                   Portfolio

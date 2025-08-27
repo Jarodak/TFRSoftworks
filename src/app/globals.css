@@ -1,0 +1,28 @@
+@import "tailwindcss";
+/* Tell Tailwind where to look for class usage (v4). Paths are relative to this CSS file (src/app/globals.css). */
+@source "../app/**/*.{ts,tsx}", "../components/**/*.{ts,tsx}", "../pages/**/*.{ts,tsx}";
+
+/* Minimal global styles compatible with Tailwind v4 and Turbopack */
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 2, 6, 23;
+    --background-end-rgb: 15, 23, 42;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    ) rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}

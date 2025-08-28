@@ -265,7 +265,7 @@ export default function Home() {
                   <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--sage-400)] to-[var(--timberwolf-600)]">Human-centered venture.</span>
                 </h1>
                 <p className="max-w-2xl text-lg text-white/90">
-                  We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
+                  We back exceptional founders and help acquire ROI faster—from zero to traction—with product engineering, smart capital, and GTM support.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <CTAButton href="/contact">
@@ -301,7 +301,7 @@ export default function Home() {
                   <span className="block break-words text-transparent bg-clip-text bg-gradient-to-r from-[var(--sage-400)] to-[var(--timberwolf-600)]">Human-centered venture.</span>
                 </h1>
                 <p className="max-w-2xl text-lg text-white/90">
-                  We back exceptional founders and help ship faster—from zero to traction—with product engineering, smart capital, and GTM support.
+                  We back exceptional founders and help acquire ROI faster—from zero to traction—with product engineering, smart capital, and GTM support.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <CTAButton href="/contact">

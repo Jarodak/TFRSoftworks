@@ -1,8 +1,8 @@
  "use client";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 // Local Container (mirrors Home page container)
 const Container = ({ children }: { children: React.ReactNode }) => (
@@ -113,91 +113,89 @@ function Logo({ name, mode = "inline", className = "" }: { name: string; mode?: 
 }
 
 const partners = [
-  // --- Active ---
   {
-    name: "Compass",
-    sector: "HealthTech / Ortho",
-    status: "Active",
-    url: null,
+    name: "Creative Health Care Insight",
+    sector: "HealthTech / Workforce",
+    exited: false,
+    url: "https://mychci.com",
     blurb:
-      "Orthopedic scheduling and reporting platform capturing procedure data, logistics, and compliance.",
-  },
-  {
-    name: "Tempo (Formerly Kalatech)",
-    sector: "SaaS / Media",
-    status: "Active",
-    url: "https://www.yourtempo.com",
-    blurb:
-      "Business solutions for agencies, tour managers, publishers, buyers, and crew in the music industry.",
-  },
-  {
-    name: "HopDoc",
-    sector: "HealthTech",
-    status: "Active",
-    url: "https://www.hopdoc.com",
-    blurb:
-      "Digital front‑door and engagement toolbox for clinics and providers.",
-  },
-  {
-    name: "Time Miner",
-    sector: "LegalTech",
-    status: "Active",
-    url: "https://timeminer.com",
-    blurb:
-      "Retroactive time capture for calls, texts, and email; exports entries to Clio and more.",
-  },
-  {
-    name: "Plankk",
-    sector: "Fitness / Creator",
-    status: "Active",
-    url: "https://plankk.com",
-    blurb:
-      "Health & fitness platform connecting users with creators and personalized programs.",
-  },
-  {
-    name: "TheraVista Health",
-    sector: "HealthTech",
-    status: "Active",
-    url: "https://theravista.health",
-    blurb:
-      "Remote Therapeutic Monitoring focused on vestibular rehabilitation.",
+      "Cloud platform for competency and professional portfolio suites aligned to ANCC requirements.",
   },
   {
     name: "Clarity Behavioural Health",
     sector: "Behavioral Health",
-    status: "Active",
+    exited: false,
     url: "https://claritybhs.com",
     blurb:
       "Personalized treatment and relaxation content for in‑patient behavioral health centers.",
   },
   {
-    name: "5 Star Finds",
-    sector: "Retail / eCommerce",
-    status: "Active",
-    url: "https://www.5ivestarfinds.com",
+    name: "Time Miner",
+    sector: "LegalTech",
+    exited: false,
+    url: "https://timeminer.com",
     blurb:
-      "Overstock and liquidation retail with a community‑first experience in Hendersonville, TN.",
+      "Retroactive time capture for calls, texts, and email; exports entries to Clio and more.",
   },
+  {
+    name: "Tempo (Formerly Kalatech)",
+    sector: "SaaS / Media",
+    exited: false,
+    url: "https://www.yourtempo.com",
+    blurb:
+      "Business solutions for agencies, tour managers, publishers, buyers, and crew in the music industry.",
+  },
+  {
+    name: "Compass",
+    sector: "HealthTech / Ortho",
+    exited: false,
+    url: null,
+    blurb:
+      "Orthopedic scheduling and reporting platform capturing procedure data, logistics, and compliance.",
+  },
+  { name: "CoreCommerce", sector: "eCommerce", exited: true, url: null, blurb: "eCommerce platform." },
   {
     name: "Clearly Legal",
     sector: "LegalTech / EdTech",
-    status: "Active",
+    exited: false,
     url: "https://clearly.legal",
     blurb:
       "CLE‑by‑podcast microlearning with automatic credit tracking and reporting.",
   },
   {
-    name: "Creative Health Care Insight",
-    sector: "HealthTech / Workforce",
-    status: "Active",
-    url: "https://mychci.com",
+    name: "TheraVista Health",
+    sector: "HealthTech",
+    exited: false,
+    url: "https://theravista.health",
     blurb:
-      "Cloud platform for competency and professional portfolio suites aligned to ANCC requirements.",
+      "Remote Therapeutic Monitoring focused on vestibular rehabilitation.",
   },
-  // --- Exits ---
-  { name: "MaxxContent", sector: "Media / Digital", status: "Exit", url: null, blurb: "Digital media/marketing venture (exited)." },
-  { name: "CoreCommerce", sector: "eCommerce", status: "Exit", url: null, blurb: "eCommerce platform (exited)." },
-  { name: "OtherLeft", sector: "Technology / Services", status: "Exit", url: null, blurb: "Technology/services venture (exited)." },
+  {
+    name: "HopDoc",
+    sector: "HealthTech",
+    exited: false,
+    url: "https://www.hopdoc.com",
+    blurb:
+      "Digital front‑door and engagement toolbox for clinics and providers.",
+  },
+  {
+    name: "5 Star Finds",
+    sector: "Retail / eCommerce",
+    exited: false,
+    url: "https://www.5ivestarfinds.com",
+    blurb:
+      "Overstock and liquidation retail with a community‑first experience in Hendersonville, TN.",
+  },
+  {
+    name: "Plankk",
+    sector: "Fitness / Creator",
+    exited: false,
+    url: "https://plankk.com",
+    blurb:
+      "Health & fitness platform connecting users with creators and personalized programs.",
+  },
+  { name: "MaxxContent", sector: "Media / Digital", exited: true, url: null, blurb: "Digital media/marketing venture." },
+  { name: "OtherLeft", sector: "Technology / Services", exited: true, url: null, blurb: "Technology/services venture." },
 ];
 
 const filters = ["All", "Active", "Exit"] as const;
@@ -207,7 +205,12 @@ type Status = typeof filters[number];
 export default function KernelPortfolioPage() {
   const [status, setStatus] = useState<Status>("All");
   const list = useMemo(
-    () => partners.filter((p) => (status === "All" ? true : p.status === status)),
+    () => partners.filter((p) => {
+      if (status === "All") return true;
+      if (status === "Active") return !p.exited;
+      if (status === "Exit") return p.exited;
+      return true;
+    }),
     [status]
   );
 
@@ -245,13 +248,14 @@ export default function KernelPortfolioPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {list.map((p: { name: string; sector: string; status: string; blurb: string; url?: string | null }) => (
+            {list.map((p: { name: string; sector: string; exited: boolean; blurb: string; url?: string | null }) => (
               <article
                 key={p.name}
                 className="
-                  group transition-colors
+                  relative group transition-colors
                   bg-slate-950/35 p-8 rounded-2xl ring-1 ring-white/10 backdrop-blur-sm
                 "
+                tabIndex={p.exited ? 0 : -1}
               >
                 <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-[9rem,1fr]">
                   {/* Logo column — fixed aspect to prevent CLS */}
@@ -272,13 +276,6 @@ export default function KernelPortfolioPage() {
                           {p.sector}
                         </div>
                       </div>
-                      <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ${
-                        p.status === 'Exit' 
-                          ? 'bg-red-400/20 text-red-300 ring-red-400/30' 
-                          : 'bg-[color:var(--sage-600)] text-[color:var(--hunter-green-100)] ring-[color:var(--sage-400)]'
-                      }`}>
-                        {p.status}
-                      </span>
                     </div>
                     {/* description */}
                     <p className="mt-3 text-sm text-[color:var(--timberwolf-600)]">{p.blurb}</p>
@@ -306,6 +303,19 @@ export default function KernelPortfolioPage() {
                     </div>
                   </div>
                 </div>
+                
+                {/* EXIT overlay — only for exited items */}
+                {p.exited && (
+                  <div className="pointer-events-none absolute inset-0 z-10 grid place-items-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200">
+                    <div className="absolute inset-0 rounded-2xl bg-red-500/10 ring-1 ring-inset ring-red-500/40" />
+                    <div
+                      className="select-none rounded-md bg-red-600/90 px-10 py-3 text-4xl font-extrabold uppercase tracking-widest text-white"
+                      style={{ transform: "rotate(-20deg)" }}
+                    >
+                      EXIT
+                    </div>
+                  </div>
+                )}
               </article>
             ))}
           </motion.div>

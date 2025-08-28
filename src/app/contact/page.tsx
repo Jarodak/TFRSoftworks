@@ -1,44 +1,60 @@
 'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
 
-// --- Utility components ---
-const Container = ({ children }: { children: React.ReactNode }) => (
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    {children}
-  </div>
-);
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  message: string;
+}
 
-//
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  message?: string;
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
     email: '',
     company: '',
     message: '',
   });
-  const [errors, setErrors] = useState<Partial<typeof formData>>({});
+
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const validate = () => {
-    const newErrors: Partial<typeof formData> = {};
-    if (!formData.firstName) newErrors.firstName = 'First name is required.';
-    if (!formData.lastName) newErrors.lastName = 'Last name is required.';
-    if (!formData.email) {
-      newErrors.email = 'Email is required.';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid.';
-    }
-    if (!formData.message) newErrors.message = 'Message is required.';
-    return newErrors;
-  };
+  const validate = (): FormErrors => {
+    const newErrors: FormErrors = {};
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters long';
+    }
+
+    return newErrors;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -54,13 +70,18 @@ export default function Contact() {
     }
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((p) => ({ ...p, [name]: value }));
+  };
+
   return (
     <div className="min-h-screen text-white">
       {/* Page header removed; using global Header */}
 
       {/* Contact Form Section */}
       <section className="py-16 lg:py-24">
-        <Container>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -92,6 +113,7 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-white mb-2">
@@ -168,6 +190,8 @@ export default function Contact() {
                       ></textarea>
                       {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message}</p>}
                     </div>
+
+
                     <div>
                       <button
                         type="submit"
@@ -223,7 +247,7 @@ export default function Contact() {
               </div>
             </motion.div>
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* Footer moved to global layout */}

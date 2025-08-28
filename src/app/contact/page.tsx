@@ -72,7 +72,7 @@ export default function Contact() {
                 How Can We Help You?
               </h1>
               <p className="text-xl text-white/70 max-w-2xl mx-auto">
-                Get in touch with our team to discuss your project, investment opportunity, or partnership. We're here to help you build, invest, and scale.
+                Get in touch with our team to discuss your project, investment opportunity, or partnership. We&apos;re here to help you build, invest, and scale.
               </p>
             </motion.div>
 
@@ -88,7 +88,7 @@ export default function Contact() {
                 {isSubmitted ? (
                   <div className="text-center p-8 bg-green-900/20 rounded-2xl">
                     <h3 className="text-2xl font-bold text-green-400">Thank you!</h3>
-                    <p className="text-white/80 mt-2">Your message has been sent successfully. We'll get back to you soon.</p>
+                    <p className="text-white/80 mt-2">Your message has been sent successfully. We&apos;ll get back to you soon.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">

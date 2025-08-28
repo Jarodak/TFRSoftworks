@@ -43,9 +43,6 @@ export default function FiveStarFindsPage() {
                 </div>
                 
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="inline-flex items-center rounded-full bg-[color:var(--sage-500)] px-3 py-1 text-sm font-medium text-[color:var(--hunter-green-100)]">
-                    Active
-                  </span>
                   <span className="text-white/70">E-commerce / Retail</span>
                 </div>
 

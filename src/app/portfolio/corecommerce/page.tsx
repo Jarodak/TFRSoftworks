@@ -43,13 +43,10 @@ export default function CoreCommercePage() {
                 </div>
                 
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="inline-flex items-center rounded-full bg-red-400/20 px-3 py-1 text-sm font-medium text-red-300">
-                    Exit
-                  </span>
                   <span className="text-white/70">E-commerce / Technology</span>
                 </div>
                 
-                <div className="bg-slate-950/35 p-4 rounded-2xl ring-1 ring-white/10 backdrop-blur-sm">
+                <div className="inline-block bg-slate-950/35 px-4 py-2 rounded-2xl ring-1 ring-white/10 backdrop-blur-sm">
                   <p className="text-white/70 text-sm">
                     No public site available
                   </p>

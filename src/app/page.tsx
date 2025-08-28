@@ -244,8 +244,8 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: [0, 1, 1, 0] }}
                 transition={{ 
-                  duration: 3.5,
-                  times: [0, 0.3, 0.8, 1],
+                  duration: 2.2,
+                  times: [0, 0.4, 0.75, 1],
                   ease: "easeInOut"
                 }}
                 className="absolute top-16 left-1/2 transform -translate-x-1/2 z-10"
@@ -256,7 +256,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 3.3 }}
+                transition={{ duration: 0.6, delay: 2.0 }}
                 className="space-y-6 rounded-2xl bg-slate-950/35 p-6 ring-1 ring-white/10 backdrop-blur-sm"
               >
                 <Pill>Founder‑first venture • Nashville</Pill>

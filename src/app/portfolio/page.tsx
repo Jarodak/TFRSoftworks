@@ -272,7 +272,11 @@ export default function KernelPortfolioPage() {
                           {p.sector}
                         </div>
                       </div>
-                      <span className={`shrink-0 rounded-full bg-[color:var(--sage-600)] px-2 py-0.5 text-[11px] font-semibold text-[color:var(--hunter-green-100)] ring-1 ring-[color:var(--sage-400)]`}>
+                      <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ring-1 ${
+                        p.status === 'Exit' 
+                          ? 'bg-red-400/20 text-red-300 ring-red-400/30' 
+                          : 'bg-[color:var(--sage-600)] text-[color:var(--hunter-green-100)] ring-[color:var(--sage-400)]'
+                      }`}>
                         {p.status}
                       </span>
                     </div>
@@ -293,9 +297,9 @@ export default function KernelPortfolioPage() {
                         <span className="text-sm text-[color:var(--timberwolf-700)]">No public site listed</span>
                       )}
                       <Link
-                        href="/contact"
+                        href={`/portfolio/${p.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').replace('formerly-', '').replace('kalatech', '').replace(/-+$/, '')}`}
                         className="inline-flex items-center gap-2 rounded-full bg-[color:var(--sage-500)] px-4 py-2 text-sm font-semibold text-[color:var(--hunter-green-100)] hover:bg-[color:var(--sage-600)] active:bg-[color:var(--sage-400)] transition-[color,background,transform] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--sage-400)]"
-                        aria-label={`Contact us about ${p.name}`}
+                        aria-label={`Learn more about ${p.name}`}
                       >
                         Learn more →
                       </Link>
